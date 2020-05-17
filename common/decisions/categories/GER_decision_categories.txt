@@ -32,16 +32,16 @@ GER_case_anton_category = {
 	}
 }
 
-GER_reichskommissariats = {
+# GER_reichskommissariats = {
 	
-	allowed = {
-		original_tag = GER
-	}
+# 	allowed = {
+# 		original_tag = GER
+# 	}
 
-	visible = {
-		has_completed_focus = GER_form_the_reichskommissariats
-	}
-}
+# 	visible = {
+# 		has_completed_focus = GER_form_the_reichskommissariats
+# 	}
+# }
 
 GER_military_buildup = {
 	icon = generic_political_actions
@@ -51,27 +51,5 @@ GER_military_buildup = {
 	}
 	visible = {
 	
-	}
-}
-
-GER_aid_hun_rom_democratic_civil_war = {
-	allowed = {
-		original_tag = GER
-	}
-	visible = {
-		has_government = democratic
-	}
-}
-
-GER_austro_hungarian_empire = {
-	allowed = {
-		OR = {
-			original_tag = AUS
-			original_tag = HUN
-			original_tag = CZE
-		}
-	}
-	visible = {
-		GER = { has_completed_focus = GER_rekindle_imperial_sentiment }
 	}
 }
