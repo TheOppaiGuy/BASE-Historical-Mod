@@ -27,40 +27,40 @@
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		bypass = {
-			550 = { NOT = { is_owned_and_controlled_by = ITA } }
-			# Need province based trigger for this to work
-			#550 = {		
-			#	NOT = { 
-			#		free_building_slots = {
-			#			building = infrastructure
-			#			size > 1
-			#		} 
-			#	}
-			#	NOT = { 
-			#		free_building_slots = {
-			#			building = naval_base
-			#			size > 2
-			#		} 
-			#	}
-			#}
-			559 = { NOT = { is_owned_and_controlled_by = ITA } }
-			# Need province based trigger for this to work
-			#559 = {
-			#	NOT = { 
-			#		free_building_slots = {
-			#			building = infrastructure
-			#			size > 2
-			#		} 
-			#	}
-			#	NOT = { 
-			#		free_building_slots = {
-			#			building = naval_base
-			#			size > 3
-			#		} 
-			#	}
-			#}
-		}
+		# bypass = {
+		# 	550 = { NOT = { is_owned_and_controlled_by = ITA } }
+		# 	# Need province based trigger for this to work
+		# 	#550 = {		
+		# 	#	NOT = { 
+		# 	#		free_building_slots = {
+		# 	#			building = infrastructure
+		# 	#			size > 1
+		# 	#		} 
+		# 	#	}
+		# 	#	NOT = { 
+		# 	#		free_building_slots = {
+		# 	#			building = naval_base
+		# 	#			size > 2
+		# 	#		} 
+		# 	#	}
+		# 	#}
+		# 	559 = { NOT = { is_owned_and_controlled_by = ITA } }
+		# 	# Need province based trigger for this to work
+		# 	#559 = {
+		# 	#	NOT = { 
+		# 	#		free_building_slots = {
+		# 	#			building = infrastructure
+		# 	#			size > 2
+		# 	#		} 
+		# 	#	}
+		# 	#	NOT = { 
+		# 	#		free_building_slots = {
+		# 	#			building = naval_base
+		# 	#			size > 3
+		# 	#		} 
+		# 	#	}
+		# 	#}
+		# }
 
 		completion_reward = {
 			if = { limit = { 550 = { is_owned_and_controlled_by = ITA } }
@@ -1535,7 +1535,6 @@
 		id = ITA_slovenia_dalmatia_claims
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = ITA_victoryinETH }
-		mutually_exclusive = { focus = ITA_yugoslavia_friend }
 		x = -1
 		y = 1
 		relative_position_id = ITA_victoryinETH
@@ -1574,7 +1573,6 @@
 						ROOT = { has_government = communism }
 						NOT = { has_government = communism }
 						NOT = { has_idea_with_trait = communist_revolutionary }
-						NOT = { has_completed_focus = YUG_recognize_the_soviet_union }
 						communism < 0.3
 					}
 					add_popularity = {
@@ -1649,7 +1647,7 @@
 			}
 		}
 		cancel_if_invalid = no
-		x = 5
+		x = 2
 		y = 1
 		relative_position_id = ITA_victoryinETH
 		cost = 4.4
@@ -1682,7 +1680,6 @@
 		id = ITA_demand_balearic_islands
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = ITA_support_nationalist_spain }
-		mutually_exclusive = { focus = ITA_spanish_italian_faction }
 		available = {
 			if = {
 				limit = {
@@ -1726,7 +1723,7 @@
 				owns_state = 177
 			}
 		}
-		x = 1
+		x = 0
 		y = 3
 		relative_position_id = ITA_support_nationalist_spain
 		cost = 10
@@ -1737,19 +1734,15 @@
 		}	
 		
 		completion_reward = {
-			random_other_country = {
-				limit = {
-					owns_state = 177
-				}
-				country_event = { id = italy.9 }
-			}
+			country_event = { id = italy.10 }
+			ITA = { transfer_state = 177 }
 		}
 	}
 
 	focus = {
 		id = ITA_bulgaria_friend
 		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = ITA_slovenia_dalmatia_claims focus = ITA_yugoslavia_friend }
+		prerequisite = { focus = ITA_slovenia_dalmatia_claims }
 		x = 0
 		y = 1
 		relative_position_id = ITA_slovenia_dalmatia_claims
@@ -1789,7 +1782,7 @@
 	focus = {
 		id = ITA_albania_war_goal
 		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = ITA_slovenia_dalmatia_claims focus = ITA_yugoslavia_friend }
+		prerequisite = { focus = ITA_slovenia_dalmatia_claims }
 		will_lead_to_war_with = ALB
 		x = 2
 		y = 1
@@ -1810,7 +1803,8 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-			ALB = { country_event = { id = italy.3 } }
+			annex_country = { target = ALB }
+			country_event = { id = italy.1 }
 		}
 	}
 
@@ -1818,7 +1812,6 @@
 		id = ITA_pact_of_steel
 		icon = GFX_goal_generic_major_alliance
 		prerequisite = { focus = ITA_bulgaria_friend }
-		mutually_exclusive = { focus = ITA_italy_first }
 		available = {
 			NOT = { has_war_with = GER }
 			custom_trigger_tooltip = {
@@ -1881,14 +1874,6 @@
 			modifier = {
 				factor = 0.1
 				ai_irrationality > 30
-			}
-
-			modifier = {
-				factor = 0
-				OR = {
-					GER = { has_completed_focus = GER_reestablish_free_elections }
-					GER = { has_completed_focus = GER_expatriate_the_communists }
-				}
 			}
 		}
 		completion_reward = {
@@ -1979,7 +1964,7 @@
 		id = ITA_romania_friend
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = ITA_bulgaria_friend }
-		x = 3
+		x = 1
 		y = 1
 		relative_position_id = ITA_bulgaria_friend
 		cost = 10
@@ -2041,25 +2026,19 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			GER = {
-				country_event = { id = italy.5 days = 1 }
-				custom_effect_tooltip = needs_approval
-			}
 			# Actual reward effects added in event if Soviets approve
-			effect_tooltip = {
-				add_tech_bonus = {
-					name = synth_bonus
-					bonus = 1.0
-					uses = 1
-					category = synth_resources
-				}
+			add_tech_bonus = {
+				name = synth_bonus
+				bonus = 1.0
+				uses = 1
+				category = synth_resources
+			}
 				# Balance research bonus to 2 techs in armor, also in event
-				add_tech_bonus = {
-					name = armor_bonus
-					bonus = 1.0
-					uses = 2
-					category = armor
-				}
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
 			}
 		}
 	}
@@ -2099,8 +2078,7 @@
 	focus = {
 		id = ITA_greece_war_goal
 		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus = ITA_pact_of_steel focus = ITA_italy_first }
-		mutually_exclusive = { focus = ITA_greece_friend }
+		prerequisite = { focus = ITA_pact_of_steel }
 		available = {
 			NOT = { is_in_faction_with = GRE }
 			NOT = { has_war_with = GRE }

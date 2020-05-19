@@ -5324,7 +5324,6 @@ CHI_xian_incident = {
 				NOT = {
 					OR = {
 						has_completed_focus = CHI_foreign_threats
-						has_completed_focus = CHI_prioritize_the_interior
 					}
 				}
 			}

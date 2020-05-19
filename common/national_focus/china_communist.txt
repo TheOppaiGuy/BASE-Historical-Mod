@@ -239,7 +239,7 @@ focus_tree = {
 		id = PRC_proclaim_the_peoples_republic
 		icon = GFX_focus_prc_proclaim_the_peoples_republic 
 		prerequisite = { focus = PRC_socialism_with_chinese_characteristics focus = PRC_internationalism }
-		x = -1
+		x = 0
 		y = 4
 		relative_position_id = PRC_agrarian_socialism
 
@@ -279,7 +279,7 @@ focus_tree = {
 		id = PRC_socialist_market_economy
 		icon = GFX_goal_generic_consumer_goods
 		prerequisite = { focus = PRC_proclaim_the_peoples_republic focus = PRC_remove_chiang_kai_shek }
-		x = 2
+		x = 0
 		y = 5
 		relative_position_id = PRC_agrarian_socialism
 
@@ -322,7 +322,7 @@ focus_tree = {
 	focus = {
 		id = PRC_land_redistribution
 		icon = GFX_goal_generic_construction
-		x = 10
+		x = 7
 		y = 0
 		relative_position_id = PRC_strengthen_the_central_secretariat
 

@@ -324,7 +324,7 @@
 		id = FRA_form_the_national_committee
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 0
-		y = 3
+		y = 2
 		offset = {
 			x = 0
 			y = 0
@@ -371,7 +371,7 @@
 		id = FRA_form_the_provisional_government_of_the_republic
 		icon = GFX_goal_tripartite_pact
 		x = 0
-		y = 3
+		y = 2
 		offset = {
 			x = 0
 			y = 0
@@ -702,48 +702,48 @@
 			add_ideas = FRA_connections_to_trade_unions
 		}
 	}
-	focus = {
-		id = FRA_cooperation_with_the_communists
-		icon = GFX_focus_generic_soviet_politics
-		x = 0
-		y = 2
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = { 
-			focus = FRA_reach_out_to_trade_unions
-		}
-		relative_position_id = FRA_reach_out_to_trade_unions
+	# focus = {
+	# 	id = FRA_cooperation_with_the_communists
+	# 	icon = GFX_focus_generic_soviet_politics
+	# 	x = 0
+	# 	y = 2
+	# 	offset = {
+	# 		x = 0
+	# 		y = 0
+	# 	}
+	# 	prerequisite = { 
+	# 		focus = FRA_reach_out_to_trade_unions
+	# 	}
+	# 	relative_position_id = FRA_reach_out_to_trade_unions
 		
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# 	available = {
 			
-		}
+	# 	}
 		
-		bypass = {
+	# 	bypass = {
 
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			if = {
-				limit = {
-					communism < 0.14
-				}
-				add_popularity = {
-					ideology = communism
-					popularity = 0.05
-				}
-			}
-			add_ideas = FRA_communist_cooperation_2
-		}
-	}
+	# 	}
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = yes
+	# 	search_filters = { FOCUS_FILTER_POLITICAL }
+	# 	completion_reward = {
+	# 		if = {
+	# 			limit = {
+	# 				communism < 0.14
+	# 			}
+	# 			add_popularity = {
+	# 				ideology = communism
+	# 				popularity = 0.05
+	# 			}
+	# 		}
+	# 		add_ideas = FRA_communist_cooperation_2
+	# 	}
+	# }
 	focus = {
 		id = FRA_connections_to_industrialists
 		icon = GFX_goal_generic_intelligence_exchange
@@ -781,7 +781,7 @@
 		id = FRA_the_civil_and_military_organization
 		icon = GFX_goal_generic_military_deal
 		x = 0
-		y = 2
+		y = 1
 		offset = {
 			x = 0
 			y = 0
@@ -817,7 +817,7 @@
 		id = FRA_national_council_of_the_resistance
 		icon = GFX_focus_focus_fra_national_resistance_council
 		x = 0
-		y = 2
+		y = 1
 		offset = {
 			x = 0
 			y = 0
@@ -858,8 +858,8 @@
 	focus = {
 		id = FRA_national_uprising
 		icon = GFX_goal_generic_dangerous_deal
-		x = -2
-		y = 2
+		x = -1
+		y = 1
 		offset = {
 			x = 0
 			y = 0
@@ -890,8 +890,8 @@
 	focus = {
 		id = FRA_french_forces_of_the_interior
 		icon = GFX_focus_prc_infiltration
-		x = 2
-		y = 2
+		x = 1
+		y = 1
 		offset = {
 			x = 0
 			y = 0

@@ -1258,7 +1258,7 @@
 	focus = {
 		id = CZE_political_direction
 		icon = GFX_goal_generic_intelligence_exchange
-		x = 8
+		x = 5
 		y = 0
 		relative_position_id = CZE_industrial_legacy
 
@@ -1361,7 +1361,7 @@
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = CZE_beacon_of_liberty }
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = CZE_democratic_bastion
 
 		cost = 10
@@ -1397,7 +1397,7 @@
 		icon = GFX_focus_research
 		prerequisite = { focus = CZE_the_romanian_question focus = CZE_defensive_preparations focus = CZE_the_polish_question }
 		x = 0
-		y = 5
+		y = 1
 		relative_position_id = CZE_defensive_preparations
 
 		cost = 10
@@ -1433,7 +1433,7 @@
 	focus = {
 		id = CZE_strategy_decisions
 		icon = GFX_goal_generic_position_armies
-		x = 12
+		x = 3
 		y = 0
 		relative_position_id = CZE_political_direction
 
@@ -1532,7 +1532,7 @@
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = CZE_trust_in_the_west }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = CZE_trust_in_the_west
 
 		cost = 10
@@ -1680,7 +1680,7 @@
 		id = CZE_czechoslovak_legion
 		icon = GFX_goal_generic_axis_build_infantry
 		prerequisite = { focus = CZE_strategy_decisions }
-		x = 5
+		x = 2
 		y = 1
 		relative_position_id = CZE_strategy_decisions
 
@@ -1716,7 +1716,7 @@
 	focus = {
 		id = CZE_military_research_institute
 		icon = GFX_focus_CZE_military_research_institute
-		x = 11
+		x = 7
 		y = 0
 		relative_position_id = CZE_strategy_decisions
 

@@ -664,7 +664,6 @@ political_actions = {
 			random_country = {
 				limit = {
 					original_tag = ENG
-					has_completed_focus = ENG_enforce_the_naval_treaties
 				}
 				country_event = { id = mtg_britain.107 }
 			}
@@ -675,7 +674,6 @@ political_actions = {
 			random_country = {
 				limit = {
 					original_tag = ENG
-					has_completed_focus = ENG_enforce_the_naval_treaties
 				}
 				country_event = { id = mtg_britain.108 }
 			}
@@ -715,7 +713,6 @@ political_actions = {
 			has_country_flag = ENG_abdication_crisis_normal_marriage
 			has_country_flag = edward_viii_married_wallis_simpson
 			NOT = { has_country_flag = created_american_monarchy }
-			has_completed_focus = ENG_unite_the_anglosphere
 		}
 
 		complete_effect = {
@@ -770,7 +767,6 @@ political_actions = {
 			has_country_flag = ENG_abdication_crisis_normal_marriage
 			has_country_flag = edward_viii_married_wallis_simpson
 			NOT = { has_country_flag = created_american_monarchy }
-			has_completed_focus = ENG_unite_the_anglosphere
 		}
 
 		complete_effect = {
@@ -841,7 +837,6 @@ political_actions = {
 				is_controlled_by = ENG
 			}
 			NOT = { has_country_flag = created_american_monarchy }
-			has_completed_focus = ENG_unite_the_anglosphere
 		}
 
 		complete_effect = {
@@ -1185,7 +1180,6 @@ ENG_enforce_the_naval_treaties = {
 
 		visible = {
 			original_tag = ENG
-			has_completed_focus = ENG_enforce_the_naval_treaties
 			FROM = {
 				OR = {
 					AND = {

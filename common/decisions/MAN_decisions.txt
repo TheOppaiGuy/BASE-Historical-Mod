@@ -503,7 +503,6 @@ MAN_banditry_category = {
 
 		available = {
 			has_country_flag = MAN_northern_bandits
-			has_completed_focus = MAN_bolster_nationalism
 		}
 		visible = {
 			has_country_flag = MAN_northern_bandits
@@ -563,7 +562,6 @@ MAN_banditry_category = {
 
 		available = {
 			has_country_flag = MAN_western_bandits
-			has_completed_focus = MAN_bolster_nationalism
 		}
 		visible = {
 			has_country_flag = MAN_western_bandits
@@ -623,7 +621,6 @@ MAN_banditry_category = {
 
 		available = {
 			has_country_flag = MAN_eastern_bandits
-			has_completed_focus = MAN_bolster_nationalism
 		}
 		visible = {
 			has_country_flag = MAN_eastern_bandits
@@ -680,12 +677,6 @@ MAN_banditry_category = {
 	}
 	MAN_recruit_bandits_generic = {
 		icon = generic_civil_support
-
-		available = {
-		}
-		visible = {
-			has_completed_focus = MAN_bolster_nationalism
-		}
 		ai_will_do = {
 			factor = 10
 		}
@@ -745,12 +736,7 @@ MAN_banditry_category = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				OR = {
-					not = {
-						has_completed_focus = MAN_independence_war
-					}
-					has_war = yes	
-				}
+				has_war = yes	
 				factor = 0
 			}
 		}

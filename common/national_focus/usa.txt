@@ -101,7 +101,7 @@ focus_tree = {
 	focus = {
 		id = USA_suspend_the_presecution
 		icon = GFX_focus_generic_diplomatic_treaty
-		x = -7
+		x = -5
 		y = 1
 		prerequisite = { focus = USA_continue_the_new_deal }
 		relative_position_id = USA_continue_the_new_deal
@@ -239,7 +239,7 @@ focus_tree = {
 		icon = GFX_goal_generic_production
 		prerequisite = { focus = USA_continue_the_new_deal }
 		relative_position_id = USA_continue_the_new_deal
-		x = -4
+		x = -3
 		y = 1
 		cost = 10
 		#ai_will_do = {
@@ -502,298 +502,298 @@ focus_tree = {
 #    #  #   #  #   #  #   #  #      #  #  #  #  #   #  #  # #  #   #  #  #   #  #  # #  # 
 ### ### #   # ###  #  ### ###      ### #  #  #  ### #  #   #   ### #  #  #  ###  ##  #  # 
 
-	focus = {
-		id = USA_limited_intervention
-		icon = GFX_goal_generic_territory_or_war
-		prerequisite = { focus = USA_continue_the_new_deal focus = USA_reestablish_the_gold_standard }
-		mutually_exclusive = { focus = USA_neutrality_act }
-		continue_if_invalid = yes
-		x = 0
-		y = 1
-		relative_position_id = USA_continue_the_new_deal
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
+	# focus = {
+	# 	id = USA_limited_intervention
+	# 	icon = GFX_goal_generic_territory_or_war
+	# 	prerequisite = { focus = USA_continue_the_new_deal }
+	# 	mutually_exclusive = { focus = USA_neutrality_act }
+	# 	continue_if_invalid = yes
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = USA_continue_the_new_deal
+	# 	cost = 10
+	# 	#ai_will_do = {
+	# 	#	factor = 1
+	# 	#}
 
-		available_if_capitulated = no
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		available = {
-			congress_high_support_trigger = yes 
-			has_government = democratic
-			NOT = { has_idea_with_trait = fascist_demagogue }
-			NOT = { has_idea_with_trait = communist_revolutionary }
-		}
-		bypass = {
+	# 	available_if_capitulated = no
+	# 	cancel_if_invalid = no
+	# 	continue_if_invalid = yes
+	# 	available = {
+	# 		congress_high_support_trigger = yes 
+	# 		has_government = democratic
+	# 		NOT = { has_idea_with_trait = fascist_demagogue }
+	# 		NOT = { has_idea_with_trait = communist_revolutionary }
+	# 	}
+	# 	bypass = {
 			
-		}
-		search_filters = {FOCUS_FILTER_USA_CONGRESS}
-		completion_reward = {
-			hidden_effect = {
-				every_other_country = {
-					limit = {
-						is_major = yes
-						has_government = ROOT
-					}
-					ROOT = {
-						add_ai_strategy = {
-							type = support
-							id = PREV
-							value = 200
-						}
-						add_ai_strategy = {
-							type = alliance
-							id = PREV
-							value = 200
-						}
-					}
-				}
-			}
-			set_rule = { can_send_volunteers = yes }
-			add_ideas = USA_limited_intervention
-			USA_congress_medium_opposition = yes
-			if = {
-				limit = {
-					has_war_support < 0.4
-					has_war_support > 0.2
-				}
-				add_stability = -0.1
-			}
-			else_if = {
-				limit = {
-					has_war_support < 0.2
-				}
-				add_stability = -0.2
-			}
-			custom_effect_tooltip = USA_limited_intervention_tt
-			hidden_effect = {
-				news_event = { id = mtg_news.4 days = 3 }
-			}
-		}
-	}
+	# 	}
+	# 	search_filters = {FOCUS_FILTER_USA_CONGRESS}
+	# 	completion_reward = {
+	# 		hidden_effect = {
+	# 			every_other_country = {
+	# 				limit = {
+	# 					is_major = yes
+	# 					has_government = ROOT
+	# 				}
+	# 				ROOT = {
+	# 					add_ai_strategy = {
+	# 						type = support
+	# 						id = PREV
+	# 						value = 200
+	# 					}
+	# 					add_ai_strategy = {
+	# 						type = alliance
+	# 						id = PREV
+	# 						value = 200
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		set_rule = { can_send_volunteers = yes }
+	# 		add_ideas = USA_limited_intervention
+	# 		USA_congress_medium_opposition = yes
+	# 		if = {
+	# 			limit = {
+	# 				has_war_support < 0.4
+	# 				has_war_support > 0.2
+	# 			}
+	# 			add_stability = -0.1
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				has_war_support < 0.2
+	# 			}
+	# 			add_stability = -0.2
+	# 		}
+	# 		custom_effect_tooltip = USA_limited_intervention_tt
+	# 		hidden_effect = {
+	# 			news_event = { id = mtg_news.4 days = 3 }
+	# 		}
+	# 	}
+	# }
 
-	focus = {
-		id = USA_war_propaganda
-		icon = GFX_goal_generic_propaganda
-		prerequisite = { focus = USA_limited_intervention }
-		available = {
-			has_government = democratic
-		}
+	# focus = {
+	# 	id = USA_war_propaganda
+	# 	icon = GFX_goal_generic_propaganda
+	# 	prerequisite = { focus = USA_limited_intervention }
+	# 	available = {
+	# 		has_government = democratic
+	# 	}
 
-		bypass = {
+	# 	bypass = {
 			
-		}
+	# 	}
 
-		available_if_capitulated = yes
-		relative_position_id = USA_limited_intervention
-		continue_if_invalid = yes
-		x = 0
-		y = 2
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
-		search_filters = {FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_USA_CONGRESS}
-		completion_reward = {
-			add_war_support = 0.1
-			if = {
-				limit = {
-					has_war_support < 0.4
-				}
-				USA_congress_small_opposition = yes
-			}
-		}
-	}
-	focus = {
-		id = USA_focus_on_europe
-		icon = GFX_focus_usa_focus_on_europe
-		x = -1
-		y = 3
-		prerequisite = { focus = USA_war_propaganda }
-		mutually_exclusive = { focus = USA_focus_on_asia }
-		relative_position_id = USA_limited_intervention
-		cost = 10
+	# 	available_if_capitulated = yes
+	# 	relative_position_id = USA_limited_intervention
+	# 	continue_if_invalid = yes
+	# 	x = 0
+	# 	y = 2
+	# 	cost = 10
+	# 	#ai_will_do = {
+	# 	#	factor = 1
+	# 	#}
+	# 	search_filters = {FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_USA_CONGRESS}
+	# 	completion_reward = {
+	# 		add_war_support = 0.1
+	# 		if = {
+	# 			limit = {
+	# 				has_war_support < 0.4
+	# 			}
+	# 			USA_congress_small_opposition = yes
+	# 		}
+	# 	}
+	# }
+	# focus = {
+	# 	id = USA_focus_on_europe
+	# 	icon = GFX_focus_usa_focus_on_europe
+	# 	x = -1
+	# 	y = 3
+	# 	prerequisite = { focus = USA_war_propaganda }
+	# 	mutually_exclusive = { focus = USA_focus_on_asia }
+	# 	relative_position_id = USA_limited_intervention
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 1
-		}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
 
-		available = {
-			has_government = democratic
-		}
+	# 	available = {
+	# 		has_government = democratic
+	# 	}
 		
-		bypass = {
-			OR = {
-				has_war_with = GER
-				has_war_with = ENG
-				has_war_with = FRA
-			}
-		}
+	# 	bypass = {
+	# 		OR = {
+	# 			has_war_with = GER
+	# 			has_war_with = ENG
+	# 			has_war_with = FRA
+	# 		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
-			unlock_decision_category_tooltip = USA_intervention_mandate
-			custom_effect_tooltip = USA_intervention_mandate_tt
-			hidden_effect = {
-				every_other_country = {
-					limit = {
-						is_major = yes
-						capital_scope = {
-							is_on_continent = europe
-						}
-						not = { has_government = ROOT }
-					}
-					ROOT = {
-						add_ai_strategy = {
-							type = contain
-							id = PREV
-							value = 200
-						}
-					}
-				}
-			}
-		}
-	}
-	focus = {
-		id = USA_office_of_strategic_services
-		icon = GFX_goal_generic_major_war
-		prerequisite = { focus = USA_focus_on_europe }
-		available = {
+	# 	completion_reward = {
+	# 		unlock_decision_category_tooltip = USA_intervention_mandate
+	# 		custom_effect_tooltip = USA_intervention_mandate_tt
+	# 		hidden_effect = {
+	# 			every_other_country = {
+	# 				limit = {
+	# 					is_major = yes
+	# 					capital_scope = {
+	# 						is_on_continent = europe
+	# 					}
+	# 					not = { has_government = ROOT }
+	# 				}
+	# 				ROOT = {
+	# 					add_ai_strategy = {
+	# 						type = contain
+	# 						id = PREV
+	# 						value = 200
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# focus = {
+	# 	id = USA_office_of_strategic_services
+	# 	icon = GFX_goal_generic_major_war
+	# 	prerequisite = { focus = USA_focus_on_europe }
+	# 	available = {
 			
-		}
-		x = -1
-		y = 4
-		relative_position_id = USA_limited_intervention
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		available_if_capitulated = yes
-		search_filters = {FOCUS_FILTER_RESEARCH}
-		completion_reward = {
-			if = {
-				limit = {
-					NOT = {
-						has_dlc = "La Resistance"
-					}
-				}
-				add_ideas = office_of_strategic_services
-			}
-			else = {
-				add_ideas = office_of_strategic_services_lar
-			}
-		}
-	}
-	focus = {
-		id = USA_focus_on_asia
-		icon = GFX_focus_usa_focus_on_asia
-		x = 1
-		y = 3
-		prerequisite = { focus = USA_war_propaganda }
-		mutually_exclusive = { focus = USA_focus_on_europe }
-		relative_position_id = USA_limited_intervention
-		cost = 10
+	# 	}
+	# 	x = -1
+	# 	y = 4
+	# 	relative_position_id = USA_limited_intervention
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# 	available_if_capitulated = yes
+	# 	search_filters = {FOCUS_FILTER_RESEARCH}
+	# 	completion_reward = {
+	# 		if = {
+	# 			limit = {
+	# 				NOT = {
+	# 					has_dlc = "La Resistance"
+	# 				}
+	# 			}
+	# 			add_ideas = office_of_strategic_services
+	# 		}
+	# 		else = {
+	# 			add_ideas = office_of_strategic_services_lar
+	# 		}
+	# 	}
+	# }
+	# focus = {
+	# 	id = USA_focus_on_asia
+	# 	icon = GFX_focus_usa_focus_on_asia
+	# 	x = 1
+	# 	y = 3
+	# 	prerequisite = { focus = USA_war_propaganda }
+	# 	mutually_exclusive = { focus = USA_focus_on_europe }
+	# 	relative_position_id = USA_limited_intervention
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 1
-		}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
 
-		available = {
-			NOT = {
-				OR = {
-					has_war_with = JAP
-					has_war_with = CHI
-				}
-			}
-		}
+	# 	available = {
+	# 		NOT = {
+	# 			OR = {
+	# 				has_war_with = JAP
+	# 				has_war_with = CHI
+	# 			}
+	# 		}
+	# 	}
 		
-		bypass = {
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
-			unlock_decision_category_tooltip = USA_intervention_mandate
-			custom_effect_tooltip = USA_intervention_mandate_tt
-		}
-	}
-	focus = {
-		id = USA_magic
-		icon = GFX_goal_generic_radar
-		x = 1
-		y = 4
-		prerequisite = { focus = USA_focus_on_asia }
-		relative_position_id = USA_limited_intervention
-		cost = 10
+	# 	completion_reward = {
+	# 		unlock_decision_category_tooltip = USA_intervention_mandate
+	# 		custom_effect_tooltip = USA_intervention_mandate_tt
+	# 	}
+	# }
+	# focus = {
+	# 	id = USA_magic
+	# 	icon = GFX_goal_generic_radar
+	# 	x = 1
+	# 	y = 4
+	# 	prerequisite = { focus = USA_focus_on_asia }
+	# 	relative_position_id = USA_limited_intervention
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 1
-		}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
 
-		available = {
+	# 	available = {
 
-		}
+	# 	}
 		
-		bypass = {
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
-			add_ideas = USA_magic
-		}
-	}
-	focus = {
-		id = USA_black_chamber
-		icon = GFX_goal_generic_military_deal
-		prerequisite = { focus = USA_magic focus = USA_office_of_strategic_services}
-		available = { }
-		x = 1
-		y = 3
-		relative_position_id = USA_war_propaganda
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		search_filters = {FOCUS_FILTER_RESEARCH}
-		completion_reward = {
-			if = {
-				limit = {
-					NOT = {
-						has_dlc = "La Resistance"
-					}
-				}
-				add_tech_bonus = {
-					name = USA_black_chamber
-					bonus = 1.0
-					uses = 2
-					category = encryption_tech
-					category = decryption_tech
-				}
-			}
-			else = {
-				add_ideas = USA_black_chamber
-			}
-		}
-	}
+	# 	completion_reward = {
+	# 		add_ideas = USA_magic
+	# 	}
+  # }
+	# focus = {
+	# 	id = USA_black_chamber
+	# 	icon = GFX_goal_generic_military_deal
+	# 	prerequisite = { focus = USA_magic focus = USA_office_of_strategic_services}
+	# 	available = { }
+	# 	x = 1
+	# 	y = 3
+	# 	relative_position_id = USA_war_propaganda
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# 	search_filters = {FOCUS_FILTER_RESEARCH}
+	# 	completion_reward = {
+	# 		if = {
+	# 			limit = {
+	# 				NOT = {
+	# 					has_dlc = "La Resistance"
+	# 				}
+	# 			}
+	# 			add_tech_bonus = {
+	# 				name = USA_black_chamber
+	# 				bonus = 1.0
+	# 				uses = 2
+	# 				category = encryption_tech
+	# 				category = decryption_tech
+	# 			}
+	# 		}
+	# 		else = {
+	# 			add_ideas = USA_black_chamber
+	# 		}
+	# 	}
+	# }
 
 	focus = {
 		id = USA_scientist_haven
 		icon = GFX_focus_research
-		prerequisite = { focus = USA_black_chamber focus = USA_arsenal_of_democracy }
-		x = 1
-		y = 1
-		relative_position_id = USA_black_chamber
+		prerequisite = { focus = USA_arsenal_of_democracy }
+		x = -2
+		y = 2
+		relative_position_id = USA_arsenal_of_democracy
 		cost = 10
 		#ai_will_do = {
 		#	factor = 1
@@ -842,10 +842,9 @@ focus_tree = {
 	focus = {
 		id = USA_neutrality_act
 		icon = GFX_goal_generic_neutrality_focus
-		x = 4
+		x = 1
 		y = 1
-		prerequisite = { focus = USA_continue_the_new_deal focus = USA_reestablish_the_gold_standard }
-		mutually_exclusive = { focus = USA_limited_intervention }
+		prerequisite = { focus = USA_continue_the_new_deal }
 		relative_position_id = USA_continue_the_new_deal
 		cost = 10
 
@@ -889,8 +888,8 @@ focus_tree = {
 		icon = GFX_focus_generic_treaty
 		x = 2
 		y = 2
-		prerequisite = { focus = USA_neutrality_act focus = USA_limited_intervention }
-		relative_position_id = USA_limited_intervention
+		prerequisite = { focus = USA_neutrality_act  }
+		relative_position_id = USA_neutrality_act
 		cost = 10
 
 		ai_will_do = {
@@ -1551,7 +1550,7 @@ focus_tree = {
  	focus = {
 		id = USA_war_plans_division
 		icon = GFX_goal_generic_position_armies
-		x = 42
+		x = 20
 		y = 0
 		offset = {
 			x = -26
@@ -1612,35 +1611,6 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = USA_intervention_in_europe
-		}
-	}
-	focus = {
-		id = USA_war_plan_gold
-		icon = GFX_focus_attack_france
-		x = -2
-		y = 2
-		prerequisite = { focus = USA_intervention_in_europe }
-		relative_position_id = USA_intervention_in_europe
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			unlock_decision_tooltip = { decision = USA_execute_war_plan_gold show_effect_tooltip = yes show_modifiers = yes }
 		}
 	}
 	focus = {
@@ -1755,7 +1725,7 @@ focus_tree = {
 	focus = {
 		id = USA_intervention_in_asia
 		icon = GFX_goal_generic_major_war
-		x = 6
+		x = 2
 		y = 1
 		prerequisite = { focus = USA_war_plans_division }
 		relative_position_id = USA_war_plans_division
@@ -1800,7 +1770,7 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = yes
 
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = USA_intervention_in_asia
 		cost = 10
@@ -1924,7 +1894,7 @@ focus_tree = {
 	focus = {
 		id = USA_war_department
 		icon = GFX_goal_generic_army_doctrines
-		x = 58
+		x = 31
 		y = 0
 		offset = {
 			x = -26

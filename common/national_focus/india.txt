@@ -73,7 +73,7 @@ focus_tree = {
 	focus = {
 		id = RAJ_provincial_elections
 		icon = GFX_goal_generic_forceful_treaty
-		x = 6
+		x = 0
 		y = 0
 
 		cost = 10
@@ -120,7 +120,7 @@ focus_tree = {
 		icon = GFX_goal_generic_neutrality_focus
 		prerequisite = { focus = RAJ_provincial_elections }
 		mutually_exclusive = { focus = RAJ_swaraj }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = RAJ_provincial_elections
 
@@ -159,7 +159,7 @@ focus_tree = {
 	focus = {
 		id = RAJ_quit_india_movement
 		icon = GFX_goal_generic_propaganda
-		prerequisite = { focus = RAJ_swaraj focus = RAJ_cripps_mission }
+		prerequisite = { focus = RAJ_cripps_mission }
 		x = 0
 		y = 2
 		relative_position_id = RAJ_cripps_mission
@@ -173,11 +173,6 @@ focus_tree = {
 		available = {
 			is_subject = yes
 		}
-
-		bypass = {
-
-		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -188,10 +183,6 @@ focus_tree = {
 			add_ideas = RAJ_quit_india_movement
 			set_country_flag = RAJ_quit_india_movement
 			custom_effect_tooltip = "tfv_raj_quit_india_unrest_tt"
-			hidden_effect = {
-				country_event = { id = tfv_raj.210 days = 15 random_days = 20 }
-				news_event = { id = news.282 hours = 6 }
-			}
 		}
 	}
 
@@ -762,7 +753,7 @@ focus_tree = {
 	focus = {
 		id = RAJ_lessons_of_the_great_war
 		icon = GFX_goal_generic_small_arms
-		x = 20
+		x = 13
 		y = 0
 
 		cost = 10
@@ -1672,7 +1663,7 @@ focus_tree = {
 	focus = {
 		id = RAJ_great_indian_peninsula_railway
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 31
+		x = 25
 		y = 0
 
 		cost = 10

@@ -68,7 +68,7 @@ focus_tree = {
 		id = HUN_balanced_budget
 		icon = GFX_goal_generic_consumer_goods
 		mutually_exclusive = { focus = HUN_economic_intervention }
-		x = 5
+		x = 0
 		y = 0
 
 		cost = 10
@@ -172,9 +172,7 @@ focus_tree = {
 		id = HUN_elect_a_fascist_king
 		icon = GFX_goal_molotov_ribbentrop_pact
 		prerequisite = { focus = HUN_elect_a_king }
-		mutually_exclusive = { focus =  HUN_elect_a_democratic_king }
-		mutually_exclusive = { focus =  HUN_invite_the_habsburg_prince }
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = HUN_elect_a_king
 
@@ -262,7 +260,7 @@ focus_tree = {
 		id = HUN_economic_intervention
 		icon = GFX_goal_generic_demand_territory
 		mutually_exclusive = { focus = HUN_balanced_budget }
-		x = 15
+		x = 3
 		y = 0
 
 		cost = 10
@@ -300,7 +298,7 @@ focus_tree = {
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = HUN_economic_intervention }
 		mutually_exclusive = { focus = HUN_council_of_peoples_commissars }
-		x = -5
+		x = -1
 		y = 1
 		relative_position_id = HUN_economic_intervention
 
@@ -381,28 +379,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_threat = 1
-			if = {
-				limit = { 
-					FRA = { 
-						has_completed_focus = FRA_strengthen_the_little_entente 
-						exists = yes
-						is_subject = no
-					} 
-
-				}
-				FRA = { country_event = { id = DOD_hungary.40 } }
-			}
-			if = {
-				limit = { 
-					OR = {
-						NOT = { FRA = { has_completed_focus = FRA_strengthen_the_little_entente } } 
-						FRA = { exists = no }
-						FRA = { is_subject = yes }
-					}
-				} #Romania gets the event if France not engaged in Balkans
-				ROM = { country_event = { id = DOD_hungary.40 } }	 
-			}
-			
+			remove_ideas = HUN_treaty_of_triannon
 			#make Horthy or King dude leader. depending on focus picked earlier
 			
 			if = {
@@ -432,16 +409,6 @@ focus_tree = {
 					hidden_effect = { retire_country_leader = yes }
 				}
 
-				#Undecided
-				if = {
-					limit = {
-						NOT = { has_completed_focus = HUN_elect_a_fascist_king }
-						NOT = { has_completed_focus = HUN_strengthen_fascists }
-					}
-					custom_effect_tooltip = HUN_renounce_the_treaty_of_trianon_tt
-				}
-
-				
 			}
 			if = {
 				limit = {
@@ -600,7 +567,7 @@ focus_tree = {
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = HUN_renounce_the_treaty_of_trianon }
 		x = -2
-		y = 3
+		y = 1
 		relative_position_id = HUN_renounce_the_treaty_of_trianon
 
 		cost = 10
@@ -656,76 +623,76 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = HUN_demand_transylvania
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus =  HUN_reaffirm_territorial_claims }
-		x = -1
-		y = 1
-		relative_position_id = HUN_reaffirm_territorial_claims
-		will_lead_to_war_with = ROM
-		cost = 10
+	# focus = {
+	# 	id = HUN_demand_transylvania
+	# 	icon = GFX_goal_generic_occupy_states_ongoing_war
+	# 	prerequisite = { focus =  HUN_reaffirm_territorial_claims }
+	# 	x = -1
+	# 	y = 1
+	# 	relative_position_id = HUN_reaffirm_territorial_claims
+	# 	will_lead_to_war_with = ROM
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 80
-		}
+	# 	ai_will_do = {
+	# 		factor = 80
+	# 	}
 
-		available = {
+	# 	available = {
 
-			ROM = {
-				controls_state = 76
-				controls_state = 83
-				controls_state = 84
-			}
-			is_puppet = no
-			NOT = {
-				is_in_faction_with = ROM
-			}
-			NOT = {
-				has_war_with = ROM
-			}
-			strength_ratio = { tag = ROM ratio > 0.66 }
-			has_army_manpower = { size > 200000 }
+	# 		ROM = {
+	# 			controls_state = 76
+	# 			controls_state = 83
+	# 			controls_state = 84
+	# 		}
+	# 		is_puppet = no
+	# 		NOT = {
+	# 			is_in_faction_with = ROM
+	# 		}
+	# 		NOT = {
+	# 			has_war_with = ROM
+	# 		}
+	# 		strength_ratio = { tag = ROM ratio > 0.66 }
+	# 		has_army_manpower = { size > 200000 }
 		
-		}
+	# 	}
 
-		bypass = {
-			OR = {
-				664 = {
-					OWNER = {
-						has_war_with = ROOT
-					}
-				}
-				NOT = {
-					ROM = {
-						controls_state = 76
-						controls_state = 83
-						controls_state = 84
-					}
-				}
-			}
-		}
+	# 	bypass = {
+	# 		OR = {
+	# 			664 = {
+	# 				OWNER = {
+	# 					has_war_with = ROOT
+	# 				}
+	# 			}
+	# 			NOT = {
+	# 				ROM = {
+	# 					controls_state = 76
+	# 					controls_state = 83
+	# 					controls_state = 84
+	# 				}
+	# 			}
+	# 		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
-		completion_reward = {	
-			custom_effect_tooltip = HUN_demands_tt		
-			ROM = { country_event = { id = DOD_hungary.50 } }
-			hidden_effect = {
-				news_event = { id = news.300 }
-			}
-		}
-	}
+	# 	search_filters = { FOCUS_FILTER_ANNEXATION }
+	# 	completion_reward = {	
+	# 		custom_effect_tooltip = HUN_demands_tt		
+	# 		ROM = { country_event = { id = DOD_hungary.50 } }
+	# 		hidden_effect = {
+	# 			news_event = { id = news.300 }
+	# 		}
+	# 	}
+	# }
 
 	focus = {
 		id = HUN_demand_southern_slovakia
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		prerequisite = { focus = HUN_reaffirm_territorial_claims }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = HUN_reaffirm_territorial_claims
 		will_lead_to_war_with = CZE
@@ -737,24 +704,7 @@ focus_tree = {
 		}
 
 		available = {
-			
-			if = {
-				limit = { 
-					country_exists = CZE 
-					664 = { is_owned_by = CZE }
-				}
-				strength_ratio = { tag = CZE ratio > 0.75 }
-			}
-			if = {
-				limit = { 
-					country_exists = SLO 
-					664 = { is_owned_by = SLO }
-				}
-				strength_ratio = { tag = SLO ratio > 0.75 }
-			}
-				
-			
-			has_army_manpower = { size > 120000 }
+			has_idea = volunteer_only
 		}
 
 		bypass = {
@@ -780,263 +730,106 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			custom_effect_tooltip = HUN_demands_tt
-			if = {
-				limit = {
-					CZE = {
-						exists = yes 
-						owns_state = 664
-					}
-				}
-				if = {
-					limit = {
-						CZE = { is_subject = yes }
-					}
-					create_wargoal = {
-						type = take_state_focus
-						target = CZE
-						expire = 0
-						generator = { 664 }
-					}
-					else = {
-						CZE = { country_event = DOD_hungary.80 }
-					}
-				}
-			}
-			if = {
-				limit = {
-					664 = { is_owned_by = POL } #exchanged Danzig for Slovakia
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = POL
-					expire = 0
-					generator = { 664 }
-				}
-			}
-			if = {
-				limit = {
-					SLO = { 
-						exists = yes 
-						owns_state = 664
-					}
-				}
-				SLO = { country_event = DOD_hungary.80 }
-			}
-			
+			transfer_state = 664
 		}
 	}
 
-	focus = {
-		id = HUN_demand_the_vojvodina
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus = HUN_demand_transylvania }
-		prerequisite = { focus = HUN_demand_southern_slovakia }
-		x = 0
-		y = 2
-		relative_position_id = HUN_reaffirm_territorial_claims
-		will_lead_to_war_with = YUG
-		cost = 10
+	# focus = {
+	# 	id = HUN_demand_the_vojvodina
+	# 	icon = GFX_goal_generic_occupy_states_ongoing_war
+	# 	prerequisite = { focus = HUN_demand_transylvania }
+	# 	prerequisite = { focus = HUN_demand_southern_slovakia }
+	# 	x = 0
+	# 	y = 2
+	# 	relative_position_id = HUN_reaffirm_territorial_claims
+	# 	will_lead_to_war_with = YUG
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 70
-		}
+	# 	ai_will_do = {
+	# 		factor = 70
+	# 	}
 
-		available = {
-			strength_ratio = { tag = YUG ratio > 0.75 }
-			has_army_manpower = { size > 175000 }
-		}
+	# 	available = {
+	# 		strength_ratio = { tag = YUG ratio > 0.75 }
+	# 		has_army_manpower = { size > 175000 }
+	# 	}
 
-		bypass = {
-			OR = {
-				YUG = {
-					exists = no
-				}
-				owns_state = 45
-				45 = {
-					OWNER = {
-						is_in_faction_with = ROOT
-					}
-				}
-				45 = {
-					OWNER = {
-						has_war_with = ROOT
-					}
-				}
-			}
-		}
+	# 	bypass = {
+	# 		OR = {
+	# 			YUG = {
+	# 				exists = no
+	# 			}
+	# 			owns_state = 45
+	# 			45 = {
+	# 				OWNER = {
+	# 					is_in_faction_with = ROOT
+	# 				}
+	# 			}
+	# 			45 = {
+	# 				OWNER = {
+	# 					has_war_with = ROOT
+	# 				}
+	# 			}
+	# 		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		search_filters = { FOCUS_FILTER_ANNEXATION }
-		completion_reward = {
-			custom_effect_tooltip = HUN_demands_tt
-			if = {
-				limit = {
-					OR = {
-						has_war_with = YUG
-						45 = {
-							NOT = {
-								is_owned_by = YUG
-							}
-						}
-					}
-				}
-				45 = { add_core_of = HUN }
-				else = {
-					if = {
-						limit = {
-							YUG = { 
-								is_subject = yes 
-								owns_state = 45
-							}
-						}
-						create_wargoal = {
-							type = take_state_focus
-							target = YUG
-							expire = 0
-							generator = { 45 }
-						}
-						else = {
-							if = {
-								limit = {
-									45 = { is_owned_by = YUG }
-								}
-								YUG = { country_event = DOD_hungary.90 }
-							}
-						}
-					}
-				}
-			}
-			hidden_effect = {
-				news_event = { id = news.306 }
-			}
-		}
-	}
-
-	focus = {
-		id = HUN_claim_overlordship_over_slovakia
-		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = HUN_demand_southern_slovakia }
-		x = 2
-		y = 2
-		relative_position_id = HUN_reaffirm_territorial_claims
-		will_lead_to_war_with = SLO
-		cost = 10
-
-		ai_will_do = {
-			factor = 70
-		}
-
-		available = {
-			OR = {
-				SLO = {
-					exists = yes
-					NOT = { is_puppet_of = HUN }
-				}
-				any_other_country = {
-					owns_state = 70
-					owns_state = 71
-					owns_state = 72
-					owns_state = 73
-					NOT = {
-						has_war_with = HUN
-					}
-				}
-			}
-			if = {
-				limit = { country_exists = SLO }
-				strength_ratio = { tag = SLO ratio > 0.75 }
-				NOT = { has_war_with = SLO }
-			}
-			has_army_manpower = { size > 175000 }
-		}
-
-		bypass = {
-			OR = {
-				SLO = {
-					is_subject_of = HUN
-				}
-				AND = {
-					owns_state = 70
-					owns_state = 71
-					owns_state = 72
-					owns_state = 73
-				}
-			}
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
-		completion_reward = {
-			custom_effect_tooltip = HUN_demands_tt
-			if = {
-				limit = {
-					70 = {
-						controller = {
-							NOT = {
-								has_war_with = ROOT
-							}
-						}
-					}
-					SLO = { exists = no } 
-					any_other_country = {
-						NOT = {
-							owns_state = 70
-							owns_state = 71
-							owns_state = 72
-							owns_state = 73
-						}
-					}
-				}
-				70 = {
-					controller = {
-						country_event = DOD_hungary.100
-					}
-				}
-			}
-			if = {
-				limit = {
-					SLO = {
-						exists = yes
-						is_puppet = no
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				SLO = { country_event = DOD_hungary.107 }
-			}
-			if = {
-				limit = {
-					SLO = {
-						exists = yes
-						is_puppet = yes
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				SLO = { OVERLORD = { country_event = DOD_hungary.107 } }
-			}
-			hidden_effect = {
-				news_event = { id = news.309 }
-			}
-		}
-	}
+	# 	search_filters = { FOCUS_FILTER_ANNEXATION }
+	# 	completion_reward = {
+	# 		custom_effect_tooltip = HUN_demands_tt
+	# 		if = {
+	# 			limit = {
+	# 				OR = {
+	# 					has_war_with = YUG
+	# 					45 = {
+	# 						NOT = {
+	# 							is_owned_by = YUG
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			45 = { add_core_of = HUN }
+	# 			else = {
+	# 				if = {
+	# 					limit = {
+	# 						YUG = { 
+	# 							is_subject = yes 
+	# 							owns_state = 45
+	# 						}
+	# 					}
+	# 					create_wargoal = {
+	# 						type = take_state_focus
+	# 						target = YUG
+	# 						expire = 0
+	# 						generator = { 45 }
+	# 					}
+	# 					else = {
+	# 						if = {
+	# 							limit = {
+	# 								45 = { is_owned_by = YUG }
+	# 							}
+	# 							YUG = { country_event = DOD_hungary.90 }
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		hidden_effect = {
+	# 			news_event = { id = news.306 }
+	# 		}
+	# 	}
+	# }
 
 	focus = {
 		id = HUN_proclaim_greater_hungary
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
-		prerequisite = { focus = HUN_demand_the_vojvodina }
+		prerequisite = { focus = HUN_demand_southern_slovakia }
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = HUN_reaffirm_territorial_claims
 
 		cost = 10
@@ -1086,7 +879,7 @@ focus_tree = {
 	focus = {
 		id = HUN_industrial_revitalization
 		icon = GFX_goal_generic_construction
-		x = 22
+		x = 9
 		y = 0
 
 		cost = 10
@@ -1962,17 +1755,13 @@ focus_tree = {
 	focus = {
 		id = HUN_secret_rearmament
 		icon = GFX_focus_secret_rearmament
-		x = 33
+		x = 20
 		y = 0
 
 		cost = 10
 
 		ai_will_do = {
 			factor = 80
-		}
-
-		available = {
-
 		}
 
 		bypass = {
@@ -2001,14 +1790,6 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 70
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
 		}
 
 		cancel_if_invalid = yes
@@ -2071,10 +1852,6 @@ focus_tree = {
 			factor = 60
 		}
 
-		available = {
-
-		}
-
 		bypass = {
 			OR = {
 				AND = {
@@ -2082,21 +1859,6 @@ focus_tree = {
 					NOT = { has_idea = HUN_treaty_of_triannon_2 }
 				}
 				has_idea = HUN_treaty_of_triannon_3
-				AND = {
-					ROM = {
-						OR = {
-							exists = no
-							is_puppet = yes
-						}
-					}
-					FRA = {
-						OR = {
-							exists = no
-							is_puppet = yes
-							NOT = { has_completed_focus = FRA_strengthen_the_little_entente }
-						}
-					}
-				}
 			}
 		}
 		cancel_if_invalid = yes
@@ -2105,20 +1867,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			if = {
-				limit = {
-					FRA = { has_completed_focus = FRA_strengthen_the_little_entente }
-				}
-				FRA = { country_event = DOD_hungary.140 }
-			}
-			if = {
-				limit = {
-					NOT = { FRA = { has_completed_focus = FRA_strengthen_the_little_entente } }
-				}
-				ROM = { country_event = DOD_hungary.140 }
-			}
-
-			custom_effect_tooltip = HUN_bled_agreement_custom_effect_tooltip
+			remove_ideas = HUN_treaty_of_triannon
 		}
 	}
 
@@ -2130,7 +1879,7 @@ focus_tree = {
 		id = HUN_establish_the_air_force
 		icon = GFX_goal_generic_build_airforce
 		prerequisite = { focus = HUN_bled_agreement }
-		x = -5
+		x = -4
 		y = 4
 		relative_position_id = HUN_secret_rearmament
 
@@ -2368,7 +2117,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_establish_the_air_force }
 		mutually_exclusive = { focus = HUN_indigenous_designs }
 		mutually_exclusive = { focus = HUN_joint_air_development }
-		x = 5
+		x = 4
 		y = 5
 		relative_position_id = HUN_establish_the_air_force
 
@@ -2395,169 +2144,169 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = HUN_fighter_competition
-		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = HUN_license_foreign_designs }
-		x = -1
-		y = 1
-		relative_position_id = HUN_license_foreign_designs
+	# focus = {
+	# 	id = HUN_fighter_competition
+	# 	icon = GFX_goal_generic_air_fighter
+	# 	prerequisite = { focus = HUN_license_foreign_designs }
+	# 	x = -1
+	# 	y = 1
+	# 	relative_position_id = HUN_license_foreign_designs
 
-		cost = 10
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 50
-		}
+	# 	ai_will_do = {
+	# 		factor = 50
+	# 	}
 
-		available = {
-			NOT = {
-				has_tech = fighter3
-				has_tech = heavy_fighter3
-			}
-			OR = {
-				GER = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				FRA = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				ITA = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				ENG = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				USA = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-			}
-		}
+	# 	available = {
+	# 		NOT = {
+	# 			has_tech = fighter3
+	# 			has_tech = heavy_fighter3
+	# 		}
+	# 		OR = {
+	# 			GER = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = fighter_tt
+	# 					OR = {
+	# 						is_available_fighter_HUN = yes
+	# 						is_available_heavy_fighter_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			FRA = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = fighter_tt
+	# 					OR = {
+	# 						is_available_fighter_HUN = yes
+	# 						is_available_heavy_fighter_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			ITA = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = fighter_tt
+	# 					OR = {
+	# 						is_available_fighter_HUN = yes
+	# 						is_available_heavy_fighter_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			ENG = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = fighter_tt
+	# 					OR = {
+	# 						is_available_fighter_HUN = yes
+	# 						is_available_heavy_fighter_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			USA = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = fighter_tt
+	# 					OR = {
+	# 						is_available_fighter_HUN = yes
+	# 						is_available_heavy_fighter_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
 
-		bypass = {
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			country_event = DOD_hungary.150 
-		}
-	}
+	# 	search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	completion_reward = {
+	# 		country_event = DOD_hungary.150 
+	# 	}
+	# }
 
-	focus = {
-		id = HUN_bomber_competition
-		icon = GFX_goal_generic_air_bomber
-		prerequisite = { focus = HUN_license_foreign_designs }
-		x = 1
-		y = 1
-		relative_position_id = HUN_license_foreign_designs
+	# focus = {
+	# 	id = HUN_bomber_competition
+	# 	icon = GFX_goal_generic_air_bomber
+	# 	prerequisite = { focus = HUN_license_foreign_designs }
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = HUN_license_foreign_designs
 
-		cost = 10
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 30
-		}
+	# 	ai_will_do = {
+	# 		factor = 30
+	# 	}
 
-		available = {
-			NOT = {
-				has_tech = CAS3
-				has_tech = tactical_bomber3
-			}
-			OR = {
-				GER = {
-					custom_trigger_tooltip = {
-						tooltip = bomber_tt
-						OR = {
-							is_available_cas_HUN = yes
-							is_available_tac_HUN = yes
-						}
-					}
-				}
-				FRA = {
-					custom_trigger_tooltip = {
-						tooltip = bomber_tt
-						OR = {
-							is_available_cas_HUN = yes
-							is_available_tac_HUN = yes
-						}
-					}
-				}
-				ITA = {
-					custom_trigger_tooltip = {
-						tooltip = bomber_tt
-						OR = {
-							is_available_cas_HUN = yes
-							is_available_tac_HUN = yes
-						}
-					}
-				}
-				ENG = {
-					custom_trigger_tooltip = {
-						tooltip = bomber_tt
-						OR = {
-							is_available_cas_HUN = yes
-							is_available_tac_HUN = yes
-						}
-					}
-				}
-				USA = {
-					custom_trigger_tooltip = {
-						tooltip = bomber_tt
-						OR = {
-							is_available_cas_HUN = yes
-							is_available_tac_HUN = yes
-						}
-					}
-				}
-			}
-		}
+	# 	available = {
+	# 		NOT = {
+	# 			has_tech = CAS3
+	# 			has_tech = tactical_bomber3
+	# 		}
+	# 		OR = {
+	# 			GER = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = bomber_tt
+	# 					OR = {
+	# 						is_available_cas_HUN = yes
+	# 						is_available_tac_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			FRA = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = bomber_tt
+	# 					OR = {
+	# 						is_available_cas_HUN = yes
+	# 						is_available_tac_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			ITA = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = bomber_tt
+	# 					OR = {
+	# 						is_available_cas_HUN = yes
+	# 						is_available_tac_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			ENG = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = bomber_tt
+	# 					OR = {
+	# 						is_available_cas_HUN = yes
+	# 						is_available_tac_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 			USA = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = bomber_tt
+	# 					OR = {
+	# 						is_available_cas_HUN = yes
+	# 						is_available_tac_HUN = yes
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
 
-		bypass = {
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			country_event = DOD_hungary.160
-		}
-	}
+	# 	search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	completion_reward = {
+	# 		country_event = DOD_hungary.160
+	# 	}
+	# }
 
 	focus = {
 		id = HUN_joint_air_development
@@ -2565,7 +2314,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_establish_the_air_force }
 		mutually_exclusive = { focus = HUN_license_foreign_designs }
 		mutually_exclusive = { focus = HUN_indigenous_designs }
-		x = 2
+		x = 1
 		y = 5
 		relative_position_id = HUN_establish_the_air_force
 

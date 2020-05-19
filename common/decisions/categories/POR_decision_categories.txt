@@ -22,10 +22,7 @@ POR_arms_purchases = {
 		has_dlc = "La Resistance"
 	}
 	visible = {
-		OR = {
-			has_completed_focus = POR_british_guns
-			has_completed_focus = POR_second_navy_reequipment
-		}
+		has_completed_focus = POR_second_navy_reequipment
 	}
 }
 

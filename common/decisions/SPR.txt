@@ -14867,10 +14867,6 @@ SPA_preparing_the_carlist_insurrection = {
 			176 = { set_state_flag = SPA_carlist_cell_flag }
 			clr_country_flag = SPA_already_establishing_carlist_cell_flag
 		}
-
-		ai_will_do = {
-
-		}
 	}
 
 	SPA_establish_pais_vasco_carlist_cell = {
@@ -14918,10 +14914,6 @@ SPA_preparing_the_carlist_insurrection = {
 		remove_effect = {
 			792 = { set_state_flag = SPA_carlist_cell_flag }
 			clr_country_flag = SPA_already_establishing_carlist_cell_flag
-		}
-
-		ai_will_do = {
-
 		}
 	}
 

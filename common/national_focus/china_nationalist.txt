@@ -701,7 +701,7 @@
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = CHI_nationalism }
 		mutually_exclusive = { focus = CHI_prioritize_the_interior }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = CHI_nationalism
 
@@ -762,21 +762,21 @@
 		}
 
 		completion_reward = {
-			CHI = {
-				set_rule = { can_create_factions = yes }
-				create_faction = chinese_united_front
-			}
-			PRC = {
-				country_event = generic.5
-			}
+			# CHI = {
+			# 	set_rule = { can_create_factions = yes }
+			# 	create_faction = chinese_united_front
+			# }
+			# PRC = {
+			# 	country_event = generic.5
+			# }
 		}
 	}
 
 	focus = {
 		id = CHI_pick_a_fight_with_japan
 		icon = GFX_focus_AST_war_japan
-		prerequisite = { focus = CHI_united_front focus = CHI_anti_communism }
-		x = 1
+		prerequisite = { focus = CHI_united_front }
+		x = 0
 		y = 1
 		relative_position_id = CHI_united_front
 
@@ -812,31 +812,31 @@
 		}
 
 		completion_reward = {
-			if = {
-				limit = {
-					MAN = {
-						OR = {
-							is_in_faction_with = JAP
-							is_puppet_of = JAP
-						}
-					}
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = MAN
-					expire = 0
-				}
-				else = {
-					create_wargoal = {
-						type = annex_everything
-						target = JAP
-						expire = 0
-					}	
-				}
-			}
-			hidden_effect = {
-				news_event = { id = wtt_news.35 days = 1}
-			}
+			# if = {
+			# 	limit = {
+			# 		MAN = {
+			# 			OR = {
+			# 				is_in_faction_with = JAP
+			# 				is_puppet_of = JAP
+			# 			}
+			# 		}
+			# 	}
+			# 	create_wargoal = {
+			# 		type = annex_everything
+			# 		target = MAN
+			# 		expire = 0
+			# 	}
+			# 	else = {
+			# 		create_wargoal = {
+			# 			type = annex_everything
+			# 			target = JAP
+			# 			expire = 0
+			# 		}	
+			# 	}
+			# }
+			# hidden_effect = {
+			# 	news_event = { id = wtt_news.35 days = 1}
+			# }
 		}
 	}
 	focus = {
@@ -1086,7 +1086,7 @@
 	focus = {
 		id = CHI_military_affairs_commission
 		icon = GFX_focus_secret_rearmament
-		x = 10
+		x = 8
 		y = 0
 		relative_position_id = CHI_three_principles_of_the_people
 
@@ -1522,7 +1522,7 @@
 	focus = {
 		id = CHI_unified_industrial_planning
 		icon = GFX_goal_generic_construction
-		x = 7
+		x = 6
 		y = 0
 		relative_position_id =  CHI_military_affairs_commission
 
