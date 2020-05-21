@@ -280,43 +280,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = HOL_pre_empt_venezuelan_aggression
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = HOL_pre_empt_venezuelan_aggression_tt
-				NOT = {
-					OR = {
-						has_idea = HOL_shell_shocked_spectator_1
-						has_idea = HOL_shell_shocked_spectator_2
-						has_idea = HOL_shell_shocked_spectator_3
-						has_idea = HOL_shell_shocked_spectator_4
-						has_idea = HOL_shell_shocked_spectator_5
-					}
-				}
-			}
-			NOT = { has_idea = HOL_aloof_neutrality }
-			has_global_flag = ven_claims_abc_islands
-		}
-		prerequisite = { focus = HOL_antilles_defenses }
-		will_lead_to_war_with = VEN
-		icon = GFX_goal_demand_sudetenland
-		x = -1
-		y = 1
-		relative_position_id = HOL_antilles_defenses
-		cost = 10
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			create_wargoal = {
-			    type = puppet_wargoal_focus
-			    target = VEN
-			    expire = 0
-			}
-		}
-	}
-
 ###  ##   ## ###     ### #  # ###  ### ###  ## 
 #   #  # #    #       #  ## # #  #  #  #   #   
 ##  ####  #   #       #  # ## #  #  #  ##   #  
@@ -1964,9 +1927,9 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_ideas = HOL_prepare_the_inundation_lines
-			unlock_decision_category_tooltip = HOL_prepare_the_inundation_lines
-			custom_effect_tooltip = HOL_prepare_the_inundation_lines_tt
+			# add_ideas = HOL_prepare_the_inundation_lines
+			# unlock_decision_category_tooltip = HOL_prepare_the_inundation_lines
+			# custom_effect_tooltip = HOL_prepare_the_inundation_lines_tt
 		}
 	}
 
@@ -3294,7 +3257,7 @@ focus_tree = {
 			has_capitulated = yes
 		}
 		icon = GFX_goal_generic_improve_relations
-		x = 27
+		x = 19
 		y = 0
 		relative_position_id = HOL_abandon_the_gold_standard
 		cost = 10
@@ -3339,8 +3302,6 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 		completion_reward = {
 			add_political_power = 120
-			unlock_decision_category_tooltip = HOL_gateway_to_europe_hol_category
-			custom_effect_tooltip = HOL_gateway_to_europe_tt
 		}
 	}
 
@@ -3380,7 +3341,7 @@ focus_tree = {
 		}
 		icon = GFX_goal_generic_trade
 		cancel_if_invalid = no
-		x = 4
+		x = 0
 		y = 1
 		relative_position_id = HOL_gateway_to_europe
 		cost = 5
@@ -3439,7 +3400,7 @@ focus_tree = {
 			has_government = neutrality
 		}
 		icon = GFX_goal_generic_political_pressure
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = HOL_unity_through_democracy
 		cost = 10
@@ -3485,7 +3446,7 @@ focus_tree = {
 		id = HOL_unity_through_democracy
 		prerequisite = { focus = HOL_cave_to_the_british }
 		icon = GFX_goal_support_democracy
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = HOL_cave_to_the_british
 		cost = 10
@@ -3569,7 +3530,7 @@ focus_tree = {
 		prerequisite = { focus = HOL_replace_the_defeatist_government }
 		prerequisite = { focus = HOL_go_with_britain }
 		icon = GFX_goal_generic_propaganda
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = HOL_replace_the_defeatist_government
 		cost = 10
@@ -3593,7 +3554,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = HOL_de_vaarplicht }
 		icon = GFX_goal_generic_major_alliance
-		x = 0
+		x = -1
 		y = 2
 		relative_position_id = HOL_de_vaarplicht
 		cost = 10
@@ -3649,7 +3610,7 @@ focus_tree = {
 		available = {
 			has_war = yes
 		}
-		prerequisite = { focus = HOL_de_vaarplicht focus = HOL_the_singapore_conferences }
+		prerequisite = { focus = HOL_de_vaarplicht }
 		icon = GFX_goal_generic_navy_submarine
 		x = 1
 		y = 1
@@ -3707,7 +3668,7 @@ focus_tree = {
 		prerequisite = { focus = HOL_ship_a_day_sinking_quotas }
 		prerequisite = { focus = HOL_allied_technological_developments }
 		icon = GFX_focus_chi_mission_to_the_us
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = HOL_ship_a_day_sinking_quotas
 		cost = 10
@@ -3885,46 +3846,6 @@ focus_tree = {
 				}
 			}
 			add_ideas = HOL_the_fourth_ally
-		}
-	}
-
-	focus = {
-		id = HOL_zandery_military_airport
-		available = {
-			is_in_faction_with = USA
-			has_war = yes
-			has_full_control_of_state = 309
-			has_full_control_of_state = 695
-		}
-		prerequisite = { focus = HOL_american_west_indies_protectorate }
-		icon = GFX_goal_generic_construct_military
-		x = 1
-		y = 2
-		relative_position_id = HOL_american_west_indies_protectorate
-		cost = 10
-
-		available_if_capitulated = yes
-		search_filters = {FOCUS_FILTER_INDUSTRY}
-		completion_reward = {
-			309 = {	
-				add_building_construction = {
-					type = air_base
-					level = 8
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			695 = {	
-				add_building_construction = {
-					type = radar_station
-					level = 3
-					instant_build = yes
-				}
-			}
 		}
 	}
 

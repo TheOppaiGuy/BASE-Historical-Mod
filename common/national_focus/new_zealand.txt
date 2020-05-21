@@ -66,7 +66,7 @@
 	focus = {
 		id = NZL_transfer_the_new_zealand_division
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		x = 16
+		x = 8
 		y = 0
 
 		cost = 10
@@ -448,7 +448,7 @@
 	focus = {
 		id = NZL_expand_the_nzpaf
 		icon = GFX_goal_generic_air_doctrine
-		x = 21
+		x = 13
 		y = 0
 
 		cost = 10
@@ -769,7 +769,7 @@
 	focus = {
 		id = NZL_national_roads_board
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 25
+		x = 17
 		y = 0
 
 		cost = 10
@@ -1335,7 +1335,7 @@
 	focus = {
 		id = NZL_army_reforms
 		icon = GFX_goal_generic_army_doctrines
-		x = 30
+		x = 22
 		y = 0
 
 		cost = 10

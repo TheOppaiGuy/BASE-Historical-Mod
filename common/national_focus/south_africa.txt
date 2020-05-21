@@ -525,9 +525,14 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-		ENG = { custom_effect_tooltip = needs_approval 
-				country_event = tfv_south_africa.1
-				}
+			transfer_state = 545
+			transfer_state = 542
+			transfer_state = 771
+			transfer_state = 770
+			transfer_state = 546
+			transfer_state = 547
+			transfer_state = 548
+			event = tfv_south_africa.2
 		}
 	}
 
@@ -613,7 +618,7 @@
 	focus = {
 		id = SAF_south_african_railways
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 20
+		x = 9
 		y = 0
 
 		cost = 10
@@ -1174,7 +1179,7 @@
 	focus = {
 		id = SAF_special_service_battalion
 		icon = GFX_goal_generic_army_doctrines
-		x = 24
+		x = 13
 		y = 0
 
 		cost = 10
@@ -1556,7 +1561,7 @@
 	focus = {
 		id = SAF_commit_to_the_five_year_plan
 		icon = GFX_goal_generic_build_airforce
-		x = 28
+		x = 17
 		y = 0	
 
 		cost = 10
@@ -1862,7 +1867,7 @@
 	focus = {
 		id = SAF_seaward_defence_force
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		x = 32
+		x = 21
 		y = 0		
 
 		cost = 10

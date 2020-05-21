@@ -1170,12 +1170,9 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			ENG = {
-				country_event = {
-					id = mexico.12
-					days = 1
-				}
-			}
+			country_event = mexico.13
+			transfer_state = 311
+			add_state_core = 311
 		}
 	}
 
@@ -2905,8 +2902,8 @@ focus_tree = {
 		id = MEX_focus_spanish_civil_war_refugees
 		icon = GFX_goal_generic_intelligence_exchange
 		prerequisite = { focus = MEX_focus_professional_army focus = MEX_focus_soldaderas focus = MEX_focus_hispanic_culture focus = MEX_focus_revolutionary_class_war }
-		x = 1
-		y = 2
+		x = -1
+		y = 1
 		relative_position_id = MEX_focus_soldaderas
 
 		cost = 5

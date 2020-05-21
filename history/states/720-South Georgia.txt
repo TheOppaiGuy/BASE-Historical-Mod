@@ -1,0 +1,21 @@
+state={
+	id=720
+	name="STATE_720"
+
+	state_category = tiny_island
+	manpower = 1
+	history=
+	{
+		owner = ENG
+		buildings = {
+
+			10995 = {
+
+			}
+		}
+	}
+
+	provinces={
+		10995
+	}
+}

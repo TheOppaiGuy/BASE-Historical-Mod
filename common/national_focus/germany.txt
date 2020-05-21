@@ -1806,6 +1806,8 @@ focus_tree = {
 		
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			event = wtt_germany.72
+			event = wtt_germany.73
 			if = {
 				limit = {
 					NOT = { is_in_faction_with = HUN }
@@ -2019,6 +2021,116 @@ focus_tree = {
 					}
 				}
 				custom_effect_tooltip = GER_integrate_war_economies_tt4
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					NOT = { has_state_flag = GER_integrate_war_economies }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_integrate_war_economies
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					NOT = { has_state_flag = GER_integrate_war_economies }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_integrate_war_economies
+			}
+			FROM = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = GER_integrate_war_economies_1
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = GER_integrate_war_economies_2
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Death or Dishonor" 
+					is_subject = no
+				}
+				every_country = {
+					limit = {
+						is_subject_of = FROM
+					}
+					ROOT = { set_autonomy = { target = PREV autonomy_state = autonomy_satellite } }
+				}
+				set_autonomy = { target = FROM autonomy_state = autonomy_satellite }
+			}
+			if = {
+				limit = { 
+					has_dlc = "Together for Victory"
+					NOT = { has_dlc = "Death or Dishonor" } 
+					is_subject = no
+				}
+				every_country = {
+					limit = {
+						is_subject_of = FROM
+					}
+					ROOT = { set_autonomy = { target = PREV autonomy_state = autonomy_dominion } }
+				}
+				set_autonomy = { target = FROM autonomy_state = autonomy_dominion }
+			}
+			if = {
+				limit = { 
+					NOT = { has_dlc = "Together for Victory" }
+					NOT = { has_dlc = "Death or Dishonor" }
+					is_subject = no
+				}
+				every_country = {
+					limit = {
+						is_subject_of = FROM
+					}
+					ROOT = { puppet = PREV }
+				}
+				puppet = FROM
 			}
 		}
 	}
@@ -2489,7 +2601,7 @@ focus_tree = {
 			}
 		}	
 		completion_reward = {
-			
+			event = romania.1
 			SOV = {
 				annex_country = {
 					target = LIT
@@ -2647,9 +2759,6 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-		available = {
-			date > 1941.3.1
-		}	
 		completion_reward = {
 			add_named_threat = { threat = 2 name = GER_anti_comitern_pact }
 		}
@@ -2699,7 +2808,7 @@ focus_tree = {
 			}
 		}
 		available = {
-			date > 1941.6.1
+			date > 1941.5.1
 		}	
 		completion_reward = {
 			create_wargoal = {
@@ -2904,6 +3013,7 @@ focus_tree = {
 					type = annex_everything
 					target = POL	
 			}
+			country_event = { id = germany.82 }
 		}
 	}
 	
@@ -3133,7 +3243,7 @@ focus_tree = {
 					}
 				}
 				set_global_flag = end_of_czechoslovakia
-				CZE = { country_event = germany.53 }
+				CZE = { country_event = germany.55 }
 			}
 			if = {
 				limit = { 
@@ -3513,7 +3623,7 @@ focus_tree = {
 	focus = {
 		id = GER_naval_rearmament
 		icon = GFX_goal_generic_build_navy
-		x = 34
+		x = 32
 		y = 1
 		cost = 5
 		ai_will_do = {
@@ -3946,7 +4056,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_improve_national_spirit
-		prerequisite = { focus = GER_anschluss }
+		prerequisite = { focus = GER_rhineland }
 		icon = GFX_goal_support_fascism
 		available = {
 			custom_trigger_tooltip = {
@@ -3985,9 +4095,9 @@ focus_tree = {
 			}
 		}
 		cancel_if_invalid = no
-		x = 5
+		x = 0
 		y = 1
-		relative_position_id = GER_anschluss
+		relative_position_id = GER_rhineland
 		cost = 10
 		ai_will_do = {
 			factor = 10

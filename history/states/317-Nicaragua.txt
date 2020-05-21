@@ -1,0 +1,32 @@
+state={
+	id=317
+	name="STATE_317"
+	manpower = 1
+	state_category = town
+
+	history={
+
+		buildings = {
+
+
+
+
+			12738 = {
+
+
+			}
+
+		}
+
+		victory_points = {
+			12738 3
+		}
+
+	}
+
+	provinces={
+		1988 2075 10728 12738 13139 13178
+	}
+
+	buildings_max_level_factor=1.000
+}

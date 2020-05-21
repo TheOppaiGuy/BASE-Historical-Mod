@@ -1559,7 +1559,7 @@
 		id = POL_strengthen_the_polish_state
 		icon = GFX_goal_generic_demand_territory
 		
-		x = 29
+		x = 27
 		y = 0
 		cost = 10
 
@@ -1624,7 +1624,7 @@
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = POL_polish_militarism }
 		
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = POL_polish_militarism
 		cost = 10
@@ -1644,7 +1644,6 @@
 		id = POL_internationalism
 		icon = GFX_goal_generic_positive_trade_relations
 		prerequisite = { focus = POL_polish_militarism focus = POL_defensive_focus }
-		mutually_exclusive = { focus = POL_poland_first }
 
 		x = 2
 		y = 1
@@ -1670,7 +1669,7 @@
 		prerequisite = { focus = POL_defensive_focus }
 		mutually_exclusive = { focus = POL_authoritarianism }
 
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = POL_internationalism
 		cost = 10
@@ -1695,7 +1694,7 @@
 		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = POL_liberalism }
 
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = POL_liberalism
 		cost = 10
@@ -1710,54 +1709,6 @@
 			set_rule = { can_send_volunteers = yes }
 			add_political_power = 150
 			#As per generic
-		}
-	}
-
-	focus = {
-		id = POL_draw_closer_to_britain
-		icon = GFX_goal_generic_major_alliance
-		prerequisite = { focus = POL_liberalism }
-		available = {
-			country_exists = ENG
-		}
-
-		x = 3
-		y = 1
-		relative_position_id = POL_liberalism
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_opinion_modifier = { target = ENG modifier = POL_draw_closer_to_britain }
-			ENG = { add_opinion_modifier = { target = ROOT modifier = POL_draw_closer_to_britain } }
-			#Relation boost with the UK
-		}
-	}
-
-	focus = {
-		id = POL_volunteer_corps
-		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = POL_intervention_focus }
-
-		x = 0
-		y = 1
-		relative_position_id = POL_intervention_focus
-		cost = 10
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_ideas = volunteer_corps_focus
-			#As Per Generic Tree
 		}
 	}
 

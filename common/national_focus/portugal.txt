@@ -2428,7 +2428,7 @@ focus_tree = {
 		prerequisite = {
 		}
 		icon = GFX_focus_por_estado_novo
-		x = 12
+		x = 8
 		y = 0
 
 		relative_position_id = POR_army_reorganization

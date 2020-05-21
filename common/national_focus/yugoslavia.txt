@@ -92,7 +92,7 @@
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = YUG_western_focus }
 		mutually_exclusive = { focus = YUG_reinforce_old_alliances }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = YUG_western_focus
 
@@ -134,7 +134,7 @@
 	focus = {
 		id = YUG_attract_foreign_capital
 		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = { focus = YUG_friendship_treaty_with_italy focus = YUG_reinforce_old_alliances }
+		prerequisite = { focus = YUG_friendship_treaty_with_italy }
 		x = 0
 		y = 2
 		relative_position_id = YUG_western_focus
@@ -506,7 +506,7 @@
 		icon = GFX_goal_anschluss
 		prerequisite = { focus = YUG_attract_foreign_capital }
 		mutually_exclusive = { focus = YUG_ban_slovene_nationalist_parties }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = YUG_attract_foreign_capital
 
@@ -539,8 +539,8 @@
 	focus = {
 		id = YUG_local_militias
 		icon = GFX_goal_generic_allies_build_infantry
-		prerequisite = { focus = YUG_limited_self_government focus = YUG_form_peasant_councils }
-		x = 2
+		prerequisite = { focus = YUG_limited_self_government }
+		x = 0
 		y = 1
 		relative_position_id = YUG_limited_self_government
 
@@ -571,8 +571,7 @@
 	focus = {
 		id = YUG_concessions_for_macedonians
 		icon = GFX_focus_generic_concessions
-		prerequisite = { focus = YUG_guarantee_religious_liberties focus = YUG_traditional_values }
-		mutually_exclusive = { focus = YUG_greater_yugoslavia }
+		prerequisite = { focus = YUG_local_militias }
 		x = 0
 		y = 2
 		relative_position_id = YUG_limited_self_government
@@ -604,44 +603,6 @@
 		}
 	}
 
-	focus = {
-		id = YUG_establish_the_banovina_of_croatia
-		icon = GFX_focus_YUG_banovina_of_croatia
-		prerequisite = { focus = YUG_concessions_for_macedonians }
-		mutually_exclusive = { focus = YUG_crush_the_ustasa }
-		x = 0
-		y = 3
-		relative_position_id = YUG_limited_self_government
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 40
-		}
-
-		available = {
-			controls_state = 109
-			controls_state = 103
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_STABILITY }
-		completion_reward = {
-			remove_ideas = YUG_idea_croatian_opposition
-			release_puppet = CRO 
-			set_autonomy = { target = CRO autonomy_state = autonomy_integrated_puppet }
-			hidden_effect = {
-				news_event = { id = news.326 hours = 6 }
-			}
-		}
-	}
-
 	############################
 	######### INDUSTRY #########
 	############################
@@ -649,7 +610,7 @@
 	focus = {
 		id = YUG_industrialization_program
 		icon = GFX_goal_generic_construction
-		x = 17
+		x = 9
 		y = 0
 
 		cost = 10
@@ -1493,7 +1454,7 @@
 	focus = {
 		id = YUG_modernize_the_air_force
 		icon = GFX_goal_generic_air_doctrine
-		x = 24
+		x = 16
 		y = 0
 
 		cost = 10
@@ -2090,7 +2051,7 @@
 	focus = {
 		id = YUG_army_modernization
 		icon = GFX_goal_generic_army_doctrines
-		x = 34
+		x = 26
 		y = 0
 
 		cost = 10

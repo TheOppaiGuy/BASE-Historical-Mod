@@ -2675,18 +2675,8 @@
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER }
 
 		completion_reward = {
-			if = { 
-				limit = {
-					ENG = { has_idea = ENG_george_vi }
-					}
-					country_event = { id = tfv_australia.90 }
-					}
-			if = { 
-				limit = {
-					ENG = { has_country_flag = edward_viii_married_wallis_simpson } 
-					}
-					country_event = { id = tfv_australia.92 } 
-				}
+			add_stability = 0.05
+			add_war_support = 0.05
 			}
 		}
 

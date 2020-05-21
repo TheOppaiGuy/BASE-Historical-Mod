@@ -2843,7 +2843,7 @@
 	focus = {
 		id = FRA_naval_rearmament
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 70
+		x = 40
 		y = 0
 		cost = 10
 		offset = {
@@ -3335,7 +3335,7 @@
 	focus = {
 		id = FRA_air_focus
 		icon = GFX_goal_generic_build_airforce
-		x = 80
+		x = 49
 		y = 0
 		cost = 10
 		offset = {

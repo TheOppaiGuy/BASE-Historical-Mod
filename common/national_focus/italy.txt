@@ -1397,7 +1397,7 @@
 		id = ITA_escort_effort
 		icon = GFX_goal_generic_navy_anti_submarine
 		prerequisite = { focus = ITA_light_ship_effort }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ITA_light_ship_effort
 		cost = 10

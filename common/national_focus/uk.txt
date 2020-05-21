@@ -1849,7 +1849,7 @@ focus_tree = {
 			}
 		} 
 		icon = GFX_goal_generic_construct_military
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = uk_service_focus
 		cost = 10
@@ -1898,7 +1898,7 @@ focus_tree = {
 			118 = { is_owned_and_controlled_by = ENG }
 		} 
 		icon = GFX_goal_generic_construct_military
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = uk_mediterranean_focus
 		cost = 10
@@ -4638,7 +4638,7 @@ focus_tree = {
 
 		icon = GFX_goal_support_democracy
 
-		x = 10
+		x = 8
 		y = 0
 		relative_position_id = uk_empire_focus
 		cost = 5

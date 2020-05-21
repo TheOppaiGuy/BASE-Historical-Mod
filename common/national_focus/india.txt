@@ -373,54 +373,54 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = RAJ_raf_funding
-		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = RAJ_imperial_service_troops }
-		x = -1
-		y = 2
-		relative_position_id = RAJ_princely_state_donations
+	# focus = {
+	# 	id = RAJ_raf_funding
+	# 	icon = GFX_goal_generic_air_fighter
+	# 	prerequisite = { focus = RAJ_imperial_service_troops }
+	# 	x = -1
+	# 	y = 2
+	# 	relative_position_id = RAJ_princely_state_donations
 
-		cost = 10
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 25
-		}
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
 
-		available = {
-			OR = {
-				is_subject_of = ENG
-				AND = {
-					has_global_flag = ENG_decolonized
-					is_in_faction_with = ENG
-				}
-			}
-			OR = {
-				has_war_with = GER
-				ENG = { has_war_with = GER }
-			}
-		}
+	# 	available = {
+	# 		OR = {
+	# 			is_subject_of = ENG
+	# 			AND = {
+	# 				has_global_flag = ENG_decolonized
+	# 				is_in_faction_with = ENG
+	# 			}
+	# 		}
+	# 		OR = {
+	# 			has_war_with = GER
+	# 			ENG = { has_war_with = GER }
+	# 		}
+	# 	}
 
-		bypass = {
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			country_event = { id = tfv_raj.1 }
-		}
-	}
+	# 	search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	completion_reward = {
+	# 		country_event = { id = tfv_raj.1 }
+	# 	}
+	# }
 
 	focus = {
 		id = RAJ_navy_funding
 		icon = GFX_goal_generic_navy_cruiser
 		prerequisite = { focus = RAJ_imperial_service_troops }
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = RAJ_princely_state_donations
 
