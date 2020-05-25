@@ -73,8 +73,6 @@ focus_tree = {
 				not = { has_dlc = "Man the Guns" }
 			}
 		}
-
-		mutually_exclusive = { focus = USA_reestablish_the_gold_standard }
 		cost = 10
 
 		ai_will_do = {
@@ -791,8 +789,8 @@ focus_tree = {
 		id = USA_scientist_haven
 		icon = GFX_focus_research
 		prerequisite = { focus = USA_arsenal_of_democracy }
-		x = -2
-		y = 2
+		x = -1
+		y = 1
 		relative_position_id = USA_arsenal_of_democracy
 		cost = 10
 		#ai_will_do = {
@@ -814,7 +812,7 @@ focus_tree = {
 		prerequisite = { focus = USA_scientist_haven }
 		
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = USA_scientist_haven
 		cost = 10
 		#ai_will_do = {
@@ -946,15 +944,6 @@ focus_tree = {
 				}
 			}
 			if = {
-				limit = {
-					has_completed_focus = USA_limited_intervention
-				}
-				swap_ideas = {
-					remove_idea = USA_limited_intervention
-					add_idea = USA_lend_lease_act_li
-				}
-			}
-			else_if = {
 				limit = { has_completed_focus = USA_neutrality_act }
 				swap_ideas = {
 					remove_idea = USA_neutrality_act

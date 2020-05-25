@@ -532,7 +532,7 @@
 			transfer_state = 546
 			transfer_state = 547
 			transfer_state = 548
-			event = tfv_south_africa.2
+			country_event = tfv_south_africa.2
 		}
 	}
 

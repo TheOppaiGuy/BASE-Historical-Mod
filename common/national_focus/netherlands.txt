@@ -697,7 +697,6 @@ focus_tree = {
 		id = HOL_curtail_colonial_autonomy
 		available = {
 			country_exists = INS
-			NOT = { has_completed_focus = HOL_oranje_boven }
 			INS = { is_subject_of = HOL }
 		}
 		bypass = {
@@ -724,9 +723,6 @@ focus_tree = {
 					idea = HOL_curtail_colonial_autonomy_subject
 					days = 545
 				}
-				hidden_effect = {
-					country_event = { id = mtg_netherlands.21 hours = 6 }
-				}
 			}
 		}
 	}
@@ -738,7 +734,6 @@ focus_tree = {
 		prerequisite = { focus = HOL_curtail_colonial_autonomy }
 		available = {
 			has_capitulated = yes
-			NOT = { has_completed_focus = HOL_oranje_boven }
 			OR = {
 				INS = {
 					is_subject_of = HOL
@@ -3123,7 +3118,7 @@ focus_tree = {
 
 	focus = {
 		id = HOL_the_battlecruiser_plan
-		prerequisite = { focus = HOL_rely_on_submarines focus = HOL_modernize_the_cruiser_fleet focus = HOL_join_germany }
+		prerequisite = { focus = HOL_rely_on_submarines focus = HOL_modernize_the_cruiser_fleet }
 		available = {
 			GER = {
 				AND = {
@@ -3171,7 +3166,6 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = HOL_the_battlecruiser_plan_tt
-			GER = { country_event = { id = mtg_netherlands.7 hours = 6 } }
 		}
 	}
 
@@ -3257,7 +3251,7 @@ focus_tree = {
 			has_capitulated = yes
 		}
 		icon = GFX_goal_generic_improve_relations
-		x = 19
+		x = 18
 		y = 0
 		relative_position_id = HOL_abandon_the_gold_standard
 		cost = 10
@@ -3308,35 +3302,10 @@ focus_tree = {
 	focus = {
 		id = HOL_cave_to_the_british
 		prerequisite = { focus = HOL_gateway_to_europe }
-		mutually_exclusive = { focus = HOL_cave_to_the_germans focus = HOL_maintain_trade_neutrality }
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = HOL_cave_to_the_british2_tt
 				check_variable = { var = ENG.eng_gateway_to_europe_influence value = 25 compare = greater_than_or_equals }
-			}
-			custom_trigger_tooltip = {
-				tooltip = HOL_cave_to_the_british_tt
-				check_variable = { var = eng_temp_trade_influence value = 15 compare = greater_than_or_equals }
-			}
-		}
-		bypass = {
-			OR = {
-				ENG = { NOT = { has_government = democratic } }
-				ENG = { exists = no }
-				has_war_with = GER
-			}
-			NOT = {
-				OR = {
-					focus_progress = {
-						focus = HOL_maintain_trade_neutrality
-						progress > 0
-					}
-					focus_progress = {
-						focus = HOL_cave_to_the_germans
-						progress > 0
-					}
-
-				}
 			}
 		}
 		icon = GFX_goal_generic_trade
@@ -3347,16 +3316,6 @@ focus_tree = {
 		cost = 5
 
 		available_if_capitulated = yes
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 100
-				is_historical_focus_on = no
-				ENG = { is_ai = no }
-				check_variable = { var = eng_temp_trade_influence value = 15 compare = greater_than_or_equals }
-			}
-		}
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
@@ -3392,7 +3351,7 @@ focus_tree = {
 
 	focus = {
 		id = HOL_replace_the_defeatist_government
-		prerequisite = { focus = HOL_oranje_boven focus = HOL_unity_through_democracy }
+		prerequisite = { focus = HOL_unity_through_democracy }
 		available = {
 			has_war = yes
 		}
@@ -3502,19 +3461,12 @@ focus_tree = {
 		}
 		bypass = {
 			is_in_faction_with = ENG
-			NOT = {
-				focus_progress = {
-					focus = HOL_lead_the_minor_democracies
-					progress > 0
-				}
-			}
 		}
-		prerequisite = { focus = HOL_oranje_boven focus = HOL_unity_through_democracy }
-		mutually_exclusive = { focus = HOL_lead_the_minor_democracies }
+		prerequisite = { focus = HOL_unity_through_democracy }
 		icon = GFX_focus_chi_british_cooperation
-		x = 3
+		x = 2
 		y = 1
-		relative_position_id = HOL_oranje_boven
+		relative_position_id = HOL_unity_through_democracy
 		cost = 10
 
 		available_if_capitulated = yes
@@ -3555,7 +3507,7 @@ focus_tree = {
 		prerequisite = { focus = HOL_de_vaarplicht }
 		icon = GFX_goal_generic_major_alliance
 		x = -1
-		y = 2
+		y = 1
 		relative_position_id = HOL_de_vaarplicht
 		cost = 10
 
@@ -3585,7 +3537,6 @@ focus_tree = {
 		}
 		bypass = {
 			has_war_with = JAP
-			NOT = { has_completed_focus = HOL_oranje_boven }
 		}
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = 1
@@ -3647,7 +3598,7 @@ focus_tree = {
 		id = HOL_allied_technological_developments
 		prerequisite = { focus = HOL_the_singapore_conferences }
 		icon = GFX_goal_tfv_generic_tech_sharing
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = HOL_the_singapore_conferences
 		cost = 10
@@ -3659,202 +3610,198 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = HOL_american_west_indies_protectorate
-		available = {
-			has_war = yes
-			NOT = { has_war_with = USA }
-		}
-		prerequisite = { focus = HOL_ship_a_day_sinking_quotas }
-		prerequisite = { focus = HOL_allied_technological_developments }
-		icon = GFX_focus_chi_mission_to_the_us
-		x = 0
-		y = 1
-		relative_position_id = HOL_ship_a_day_sinking_quotas
-		cost = 10
+	# focus = {
+	# 	id = HOL_american_west_indies_protectorate
+	# 	available = {
+	# 		has_war = yes
+	# 		NOT = { has_war_with = USA }
+	# 	}
+	# 	prerequisite = { focus = HOL_ship_a_day_sinking_quotas }
+	# 	prerequisite = { focus = HOL_allied_technological_developments }
+	# 	icon = GFX_focus_chi_mission_to_the_us
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = HOL_ship_a_day_sinking_quotas
+	# 	cost = 10
 
-		available_if_capitulated = yes
-		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
-		completion_reward = {
-			if = {
-				limit = {
-					is_in_faction_with = USA
-				}
-				695 = {
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						province = 153
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 1
-						province = 153
-						instant_build = yes
-					}
-				}
-				309 = {
-					add_building_construction = {
-						type = coastal_bunker
-						level = 1
-						province = 10906
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 1
-						province = 10906
-						instant_build = yes
-					}
-				}
-				division_template = {
-					name = "American Garrison"
-					priority = 1
-					division_names_group = USA_INF_01
-					is_locked = yes
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-						infantry = { x = 2 y = 0 }
-						infantry = { x = 2 y = 1 }
-						infantry = { x = 2 y = 2 }
-						infantry = { x = 3 y = 0 }
-						infantry = { x = 3 y = 1 }
-						infantry = { x = 3 y = 2 }
-					}
-					support = {
-					    artillery = { x = 0 y = 0 }
-					    engineer = { x = 0 y = 1 }
-					}
-				}
-				695 = {
-					create_unit = {
-						division = "name = \"1. American Garrison\" division_template = \"American Garrison\" start_experience_factor = 0.5" 
-						owner = HOL
-					}
-				}
-				309 = {
-					create_unit = {
-						division = "name = \"2. American Garrison\" division_template = \"American Garrison\" start_experience_factor = 0.5" 
-						owner = HOL
-					}
-				}
-			}
-			if = {
-				limit = {
-					NOT = { is_in_faction_with = USA }
-				}
-				custom_effect_tooltip = HOL_american_west_indies_protectorate_tt
-				effect_tooltip = {
-					USA = {
-						add_war_support = 0.1
-						give_guarantee = HOL
-					}
-				}
-				USA = { country_event = { id = mtg_netherlands.26 } }
-			}
-		}
-	}
+	# 	available_if_capitulated = yes
+	# 	search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+	# 	completion_reward = {
+	# 		if = {
+	# 			limit = {
+	# 				is_in_faction_with = USA
+	# 			}
+	# 			695 = {
+	# 				add_building_construction = {
+	# 					type = coastal_bunker
+	# 					level = 1
+	# 					province = 153
+	# 					instant_build = yes
+	# 				}
+	# 				add_building_construction = {
+	# 					type = bunker
+	# 					level = 1
+	# 					province = 153
+	# 					instant_build = yes
+	# 				}
+	# 			}
+	# 			309 = {
+	# 				add_building_construction = {
+	# 					type = coastal_bunker
+	# 					level = 1
+	# 					province = 10906
+	# 					instant_build = yes
+	# 				}
+	# 				add_building_construction = {
+	# 					type = bunker
+	# 					level = 1
+	# 					province = 10906
+	# 					instant_build = yes
+	# 				}
+	# 			}
+	# 			division_template = {
+	# 				name = "American Garrison"
+	# 				priority = 1
+	# 				division_names_group = USA_INF_01
+	# 				is_locked = yes
+	# 				regiments = {
+	# 					infantry = { x = 0 y = 0 }
+	# 					infantry = { x = 0 y = 1 }
+	# 					infantry = { x = 0 y = 2 }
+	# 					infantry = { x = 1 y = 0 }
+	# 					infantry = { x = 1 y = 1 }
+	# 					infantry = { x = 1 y = 2 }
+	# 					infantry = { x = 2 y = 0 }
+	# 					infantry = { x = 2 y = 1 }
+	# 					infantry = { x = 2 y = 2 }
+	# 					infantry = { x = 3 y = 0 }
+	# 					infantry = { x = 3 y = 1 }
+	# 					infantry = { x = 3 y = 2 }
+	# 				}
+	# 				support = {
+	# 				    artillery = { x = 0 y = 0 }
+	# 				    engineer = { x = 0 y = 1 }
+	# 				}
+	# 			}
+	# 			695 = {
+	# 				create_unit = {
+	# 					division = "name = \"1. American Garrison\" division_template = \"American Garrison\" start_experience_factor = 0.5" 
+	# 					owner = HOL
+	# 				}
+	# 			}
+	# 			309 = {
+	# 				create_unit = {
+	# 					division = "name = \"2. American Garrison\" division_template = \"American Garrison\" start_experience_factor = 0.5" 
+	# 					owner = HOL
+	# 				}
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { is_in_faction_with = USA }
+	# 			}
+	# 			custom_effect_tooltip = HOL_american_west_indies_protectorate_tt
+	# 			effect_tooltip = {
+	# 				USA = {
+	# 					add_war_support = 0.1
+	# 					give_guarantee = HOL
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 
-	focus = {
-		id = HOL_combined_chiefs_of_staff_representation
-		available = {
-			is_in_faction_with = ENG
-			is_in_faction_with = USA
-			has_war = yes
-			OR = {
-				has_capitulated = no
-				has_legitimacy > 80
-			}
-		}
-		prerequisite = { focus = HOL_request_allied_favors }
-		prerequisite = { focus = HOL_american_west_indies_protectorate }
-		icon = GFX_focus_generic_military_academy
-		x = 1
-		y = 1
-		relative_position_id = HOL_request_allied_favors
-		cost = 10
+	# focus = {
+	# 	id = HOL_combined_chiefs_of_staff_representation
+	# 	available = {
+	# 		is_in_faction_with = ENG
+	# 		is_in_faction_with = USA
+	# 		has_war = yes
+	# 		OR = {
+	# 			has_capitulated = no
+	# 			has_legitimacy > 80
+	# 		}
+	# 	}
+	# 	prerequisite = { focus = HOL_request_allied_favors }
+	# 	prerequisite = { focus = HOL_american_west_indies_protectorate }
+	# 	icon = GFX_focus_generic_military_academy
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = HOL_request_allied_favors
+	# 	cost = 10
 
-		available_if_capitulated = yes
+	# 	available_if_capitulated = yes
 
-		completion_reward = {
-			add_ideas = HOL_combined_chiefs_of_staff_representation
-		}
-	}
+	# 	completion_reward = {
+	# 		add_ideas = HOL_combined_chiefs_of_staff_representation
+	# 	}
+	# }
 
-	focus = {
-		id = HOL_the_fourth_ally
-		available = {
-			is_in_faction_with = ENG
-			is_in_faction_with = USA
-			has_war = yes
-			NOT = { has_war_with = SOV }
-			has_full_control_of_state = 335
-			has_full_control_of_state = 672
-		}
-		prerequisite = { focus = HOL_combined_chiefs_of_staff_representation }
-		icon = GFX_focus_hol_the_fourth_ally
-		x = 0
-		y = 1
-		relative_position_id = HOL_combined_chiefs_of_staff_representation
-		cost = 10
+	# focus = {
+	# 	id = HOL_the_fourth_ally
+	# 	available = {
+	# 		is_in_faction_with = ENG
+	# 		is_in_faction_with = USA
+	# 		has_war = yes
+	# 		NOT = { has_war_with = SOV }
+	# 		has_full_control_of_state = 335
+	# 		has_full_control_of_state = 672
+	# 	}
+	# 	prerequisite = { focus = HOL_combined_chiefs_of_staff_representation }
+	# 	icon = GFX_focus_hol_the_fourth_ally
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = HOL_combined_chiefs_of_staff_representation
+	# 	cost = 10
 
-		available_if_capitulated = yes
+	# 	available_if_capitulated = yes
 
-		completion_reward = {
-			335 = {
-				if = {
-					limit = {
-						335 = {
-							free_building_slots = {
-								building = dockyard
-								size > 1
-								include_locked = yes
-							}
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-							type = dockyard
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			672 = {
-				if = {
-					limit = {
-						672 = {
-							free_building_slots = {
-								building = dockyard
-								size > 1
-								include_locked = yes
-							}
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-							type = dockyard
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			add_ideas = HOL_the_fourth_ally
-		}
-	}
+	# 	completion_reward = {
+	# 		335 = {
+	# 			if = {
+	# 				limit = {
+	# 					335 = {
+	# 						free_building_slots = {
+	# 							building = dockyard
+	# 							size > 1
+	# 							include_locked = yes
+	# 						}
+	# 					}
+	# 				}
+	# 				add_extra_state_shared_building_slots = 2
+	# 				add_building_construction = {
+	# 						type = dockyard
+	# 						level = 2
+	# 						instant_build = yes
+	# 				}
+	# 			}
+	# 		}
+	# 		672 = {
+	# 			if = {
+	# 				limit = {
+	# 					672 = {
+	# 						free_building_slots = {
+	# 							building = dockyard
+	# 							size > 1
+	# 							include_locked = yes
+	# 						}
+	# 					}
+	# 				}
+	# 				add_extra_state_shared_building_slots = 2
+	# 				add_building_construction = {
+	# 						type = dockyard
+	# 						level = 2
+	# 						instant_build = yes
+	# 				}
+	# 			}
+	# 		}
+	# 		add_ideas = HOL_the_fourth_ally
+	# 	}
+	# }
 
 #   ###  ##  ###      ### #  # ###     #   # ### #  #  ##  ###      ###  ### #   #  ##   ##  ###   ##   ##  ### ###  ## 
 #   #   #  # #  #      #  #  # #       ## ##  #  ## # #  # #  #     #  # #   ## ## #  # #  # #  # #  # #  #  #  #   #   
 #   ##  #### #  #      #  #### ##      # # #  #  # ## #  # ###      #  # ##  # # # #  # #    ###  #### #     #  ##   #  
 #   #   #  # #  #      #  #  # #       #   #  #  #  # #  # #  #     #  # #   #   # #  # #  # #  # #  # #  #  #  #     # 
 ### ### #  # ###       #  #  # ###     #   # ### #  #  ##  #  #     ###  ### #   #  ##   ##  #  # #  #  ##  ### ### ##  
-
-
-
 }

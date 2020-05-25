@@ -58,7 +58,6 @@
 	focus = {
 		id = YUG_western_focus
 		icon = GFX_goal_generic_position_armies
-		mutually_exclusive = { focus = YUG_recognize_the_soviet_union }
 		x = 3
 		y = 0
 
@@ -91,7 +90,6 @@
 		id = YUG_friendship_treaty_with_italy
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = YUG_western_focus }
-		mutually_exclusive = { focus = YUG_reinforce_old_alliances }
 		x = 0
 		y = 1
 		relative_position_id = YUG_western_focus
@@ -654,21 +652,6 @@
 
 		ai_will_do = {
 			factor = 70
-			modifier = {
-					factor = 1.2
-					OR = {
-						has_completed_focus = YUG_join_comintern
-						has_completed_focus = YUG_yugoslavian_path_to_communism
-					}
-				}
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
 		}
 
 		cancel_if_invalid = yes
@@ -695,11 +678,7 @@
 		ai_will_do = {
 			factor = 60
 			modifier = {
-					factor = 1.2
-					OR = {
-						has_completed_focus = YUG_join_comintern
-						has_completed_focus = YUG_yugoslavian_path_to_communism
-					}
+				factor = 1.2
 			}
 		}
 
@@ -713,9 +692,6 @@
 		bypass = {
 
 		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
@@ -760,11 +736,7 @@
 		ai_will_do = {
 			factor = 60
 			modifier = {
-					factor = 1.2
-					OR = {
-						has_completed_focus = YUG_join_comintern
-						has_completed_focus = YUG_yugoslavian_path_to_communism
-					}
+				factor = 1.2
 			}
 		}
 
@@ -812,10 +784,6 @@
 			factor = 60
 				modifier = {
 					factor = 1.2
-					OR = {
-						has_completed_focus = YUG_join_comintern
-						has_completed_focus = YUG_yugoslavian_path_to_communism
-					}
 				}
 		}
 
@@ -925,10 +893,6 @@
 			factor = 60
 			modifier = {
 					factor = 1.2
-					OR = {
-						has_completed_focus = YUG_join_comintern
-						has_completed_focus = YUG_yugoslavian_path_to_communism
-					}
 				}
 		}
 
@@ -975,10 +939,6 @@
 			factor = 80
 			modifier = {
 					factor = 1.2
-					OR = {
-						has_completed_focus = YUG_join_comintern
-						has_completed_focus = YUG_yugoslavian_path_to_communism
-					}
 				}
 		}
 
@@ -1089,12 +1049,8 @@
 		ai_will_do = {
 			factor = 60
 			modifier = {
-					factor = 1.2
-					OR = {
-						has_completed_focus = YUG_join_comintern
-						has_completed_focus = YUG_yugoslavian_path_to_communism
-					}
-				}
+				factor = 1.2
+			}
 		}
 
 		available = {

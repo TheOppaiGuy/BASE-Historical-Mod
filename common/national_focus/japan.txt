@@ -137,18 +137,19 @@
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			JAP = {
-				add_wargoal = CHI
+			create_wargoal = {
+					type = annex_everything
+					target = POL	
 			}
 			CHI = {
 			set_rule = { can_create_factions = yes }
 			create_faction = CHI_united_front
-			add_to_faction = PRC
-			add_to_faction = SHX
-			add_to_faction = SIK
-			add_to_faction = YUN
-			add_to_faction = GXC
-			add_to_faction = XSM
+			# add_to_faction = PRC
+			# add_to_faction = SHX
+			# add_to_faction = SIK
+			# add_to_faction = YUN
+			# add_to_faction = GXC
+			# add_to_faction = XSM
 			}
 			add_named_threat = { threat = 1 name = JAP_intervene_in_china }
 			add_ideas = JAP_intervene_in_china_5
@@ -330,8 +331,7 @@
 		id = JAP_bypass_the_philippines
 		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
-		mutually_exclusive = { focus = JAP_secure_the_philippines }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
@@ -364,78 +364,78 @@
 		}
 	}
 
-	focus = {
-		id = JAP_secure_the_philippines
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
-		mutually_exclusive = { focus = JAP_bypass_the_philippines }
-		x = 1
-		y = 1
-		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
+	# focus = {
+	# 	id = JAP_secure_the_philippines
+	# 	icon = GFX_goal_generic_occupy_states_ongoing_war
+	# 	prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
+	# 	mutually_exclusive = { focus = JAP_bypass_the_philippines }
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
-		will_lead_to_war_with = PHI
+	# 	will_lead_to_war_with = PHI
 
-		cost = 10
+	# 	cost = 10
 
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 10
-				"PHI" = {
-					has_war = yes
-					NOT = { has_war_with = JAP }
-				}
-			}
-			modifier = {
-				has_war_with = SOV
-				factor = 0
-			}
-			modifier = {
-				has_War_with = event_target:WTT_current_china_leader
-				event_target:WTT_current_china_leader = {
-					surrender_progress < 0.2
-				}
-				factor = 0
-			}
-		}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 		modifier = {
+	# 			factor = 10
+	# 			"PHI" = {
+	# 				has_war = yes
+	# 				NOT = { has_war_with = JAP }
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			has_war_with = SOV
+	# 			factor = 0
+	# 		}
+	# 		modifier = {
+	# 			has_War_with = event_target:WTT_current_china_leader
+	# 			event_target:WTT_current_china_leader = {
+	# 				surrender_progress < 0.2
+	# 			}
+	# 			factor = 0
+	# 		}
+	# 	}
 
-		available = {
+	# 	available = {
 
-		}
+	# 	}
 
-		bypass = {
-			OR = {
-				has_war_with = PHI
-				has_wargoal_against = PHI
-			}
-		}
+	# 	bypass = {
+	# 		OR = {
+	# 			has_war_with = PHI
+	# 			has_wargoal_against = PHI
+	# 		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		will_lead_to_war_with = PHI
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+	# 	will_lead_to_war_with = PHI
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
-		completion_reward = {
-			create_wargoal = {
-				target = "PHI"
-				type = puppet_wargoal_focus
-				expire = 0
-				expire = 0
-			}
-			add_ai_strategy = {
-				type = conquer
-				id = "PHI"
-				value = 200
-			}
-		}
-	}
+	# 	search_filters = { FOCUS_FILTER_ANNEXATION }
+	# 	completion_reward = {
+	# 		create_wargoal = {
+	# 			target = "PHI"
+	# 			type = puppet_wargoal_focus
+	# 			expire = 0
+	# 			expire = 0
+	# 		}
+	# 		add_ai_strategy = {
+	# 			type = conquer
+	# 			id = "PHI"
+	# 			value = 200
+	# 		}
+	# 	}
+	# }
 
 	focus = {
 		id = JAP_strike_on_the_southern_resource_area
 		icon = GFX_focus_jap_strike_south
-		prerequisite = { focus = JAP_secure_the_philippines focus = JAP_bypass_the_philippines }
-		x = 1
+		prerequisite = { focus = JAP_bypass_the_philippines }
+		x = 0
 		y = 1
 		relative_position_id = JAP_bypass_the_philippines
 
@@ -501,147 +501,34 @@
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = { has_wargoal_against = INS }
-					NOT = { has_war_with = INS }
-					country_exists = INS
-					if = {
-						limit = {
-							INS = { is_subject_of = HOL }
-						}
-						OR = {
-							has_country_flag = HOL_declare_war_indies_allowed
-							HOL = { NOT = { has_completed_focus = HOL_placate_the_japanese } }
-						}
-					}
-				}
-				create_wargoal = {
-					target = INS
-					type = annex_everything
-					expire = 0
-				}
-				add_ai_strategy = {
-					type = conquer
-					id = "INS"
-					value = 200
-				}
+			declare_war_on = {
+				target = USA
+				type = annex_everything
 			}
-			if = {
-				limit = {
-					INS = { exists = no }
-					335 = {
-						CONTROLLER = {
-							NOT = {
-								is_in_faction_with = ROOT
-							}
-						}
-					}
-					if = {
-						limit = {
-							335 = {
-								CONTROLLER = {
-									tag = HOL
-								}
-							}
-						}
-						OR = {
-							has_country_flag = HOL_declare_war_indies_allowed
-							HOL = { NOT = { has_completed_focus = HOL_placate_the_japanese } }
-						}
-					}
-				}
-				335 = {
-					OWNER = {
-						ROOT = {
-							create_wargoal = {
-								target = PREV
-								type = take_state_focus
-								expire = 0
-								generator = { 335 334 672 673 668 667 669 738 }
-							}
-							add_ai_strategy = {
-								type = conquer
-								id = PREV
-								value = 200
-							}
-						}
-					}
-				}
+			declare_war_on = {
+				target = ENG
+				type = annex_everything
 			}
-			if = {
-				limit = {
-					NOT = { has_wargoal_against = MAL }
-					NOT = { has_war_with = MAL }
-					country_exists = MAL
-				}
-				create_wargoal = {
-					target = MAL
-					type = annex_everything
-					expire = 0
-				}
-				add_ai_strategy = {
-					type = conquer
-					id = "MAL"
-					value = 200
-				}
-			}
-			if = {
-				limit = {
-					MAL = { exists = no }
-					336 = {
-						CONTROLLER = {
-							NOT = {
-								is_in_faction_with = ROOT
-							}
-						}
-					}
-				}
-				336 = {
-					OWNER = {
-						ROOT = {
-							create_wargoal = {
-								target = PREV
-								type = take_state_focus
-								expire = 0
-								generator = { 336 }
-							}
-							add_ai_strategy = {
-								type = conquer
-								id = PREV
-								value = 200
-							}
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						671 = {
-							is_controlled_by = FRA
-						}
-						670 = {
-							is_controlled_by = FRA
-						}
-						286 = {
-							is_controlled_by = FRA
-						}
-						741 = {
-							is_controlled_by = FRA
-						}
-					}
-					NOT = { has_wargoal_against = FRA }
-					NOT = { has_war_with = FRA }
-				}
-				#Might be generating on states FRA does not own, but not worth the time to get it exact. Should have no gameplay impact.
-				create_wargoal = {
-					target = FRA
-					type = take_state_focus
-					expire = 0
-					generator = { 671 670 286 741 }
-				}
-			}
+			declare_war_on = {
+				target = AST
+				type = annex_everything
+			} 
+			declare_war_on = {
+				target = NZL
+				type = annex_everything
+			} 
+			declare_war_on = {
+				target = RAJ
+				type = annex_everything
+			} 
+			declare_war_on = {
+				target = CAN
+				type = annex_everything
+			} 
+			declare_war_on = {
+				target = SAF
+				type = annex_everything
+			} 
 		}
 	}
 
@@ -1051,7 +938,7 @@
 	focus = {
 		id = JAP_national_mobilization_law
 		icon = GFX_goal_generic_axis_build_infantry
-		prerequisite = { focus = JAP_guide_the_zaibatsus focus = JAP_challenge_the_zaibatsus }
+		prerequisite = { focus = JAP_guide_the_zaibatsus }
 		x = 2
 		y = 1
 		relative_position_id = JAP_guide_the_zaibatsus
@@ -1131,7 +1018,7 @@
 	focus = {
 		id = JAP_national_defense_state
 		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = JAP_nationalize_war_industry focus = JAP_imperial_arsenals }
+		prerequisite = { focus = JAP_nationalize_war_industry }
 		x = 2
 		y = 1
 		relative_position_id = JAP_nationalize_war_industry
@@ -1292,7 +1179,7 @@
 	focus = {
 		id = JAP_the_manchurian_project
 		icon = GFX_focus_jap_manchurian_project
-		x = 12
+		x = 11
 		y = 0
 		offset = {
 			x = -4
@@ -1308,14 +1195,10 @@
 			factor = 1
 			modifier = {
 				factor = 2
-				OR = {
-					has_completed_focus = JAP_support_the_kodoha_faction
-					has_completed_focus = JAP_purge_the_kodoha_faction
-				}
+				has_completed_focus = JAP_purge_the_kodoha_faction
 			}
 			modifier = {
 				factor = 10
-				has_completed_focus = JAP_technological_exchange
 			}
 		}
 
@@ -1671,7 +1554,6 @@
 			factor = 1
 			modifier = {
 				factor = 10
-				has_completed_focus = JAP_technological_exchange
 			}
 		}
 
@@ -1714,7 +1596,7 @@
 	focus = {
 		id = JAP_army_expansion_law
 		icon = GFX_goal_generic_army_doctrines
-		x = 6
+		x = 5
 		y = 0
 		relative_position_id = JAP_the_manchurian_project 
 
@@ -1724,7 +1606,6 @@
 			factor = 1
 			modifier = {
 				factor = 2
-				has_completed_focus = JAP_support_the_kodoha_faction
 			}
 		}
 
@@ -1760,7 +1641,6 @@
 			factor = 2
 			modifier = {
 				factor = 2
-				has_completed_focus = JAP_support_the_kodoha_faction
 			}
 		}
 
@@ -1802,7 +1682,6 @@
 			factor = 1
 			modifier = {
 				factor = 2
-				has_completed_focus = JAP_strengthen_civilian_government
 			}
 		}
 
@@ -1944,7 +1823,6 @@
 			factor = 1
 			modifier = {
 				factor = 2
-				has_completed_focus = JAP_support_the_kodoha_faction
 			}
 		}
 
@@ -1982,7 +1860,6 @@
 			factor = 1
 			modifier = {
 				factor = 2
-				has_completed_focus = JAP_support_the_kodoha_faction
 			}
 		}
 
@@ -2018,7 +1895,6 @@
 			factor = 1
 			modifier = {
 				factor = 2
-				has_completed_focus = JAP_support_the_kodoha_faction
 				has_completed_focus = JAP_purge_the_kodoha_faction
 			}
 		}

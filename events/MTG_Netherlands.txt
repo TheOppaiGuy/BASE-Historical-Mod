@@ -64,321 +64,6 @@ country_event = {
 	}
 }
 
-# Event for HOL saying USA will protect West Indies
-country_event = {
-	id = mtg_netherlands.27
-	title = mtg_netherlands.27.t
-	desc = mtg_netherlands.27.d
-	picture = GFX_report_event_generic_sign_treaty3
-
-	is_triggered_only = yes
-	
-	# Ok!
-	option = {
-		name = mtg_netherlands.27.a
-		USA = {
-			add_war_support = 0.1
-			give_guarantee = HOL
-		}
-		hidden_effect = { news_event = { id = mtg_news.52 days = 1 } }
-	}
-}
-
-# Event for HOL saying USA will NOT protect West Indies
-country_event = {
-	id = mtg_netherlands.28
-	title = mtg_netherlands.28.t
-	desc = mtg_netherlands.28.d
-	picture = GFX_report_event_generic_read_write
-
-	is_triggered_only = yes
-	
-	# Damnit
-	option = {
-		name = mtg_netherlands.28.a
-	}
-}
-
-# Event for FROM for equipment to prepare against an invasion
-country_event = {
-	id = mtg_netherlands.29
-	title = mtg_netherlands.29.t
-	desc = mtg_netherlands.29.d
-	picture = GFX_report_event_generic_rifles
-
-	is_triggered_only = yes
-	
-	# Ok - give them infantry equipment
-	option = {
-		name = mtg_netherlands.29.a
-		trigger = {
-			has_equipment = {
-			    infantry_equipment > 2000
-			}
-		}
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0
-				is_in_faction_with = SOV
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = fascism
-				OR = {
-					NOT = {
-						HOL = { has_completed_focus = HOL_cave_to_the_germans }
-					}
-					HOL = { has_completed_focus = HOL_the_netherlands_first }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = neutrality
-				NOT = {
-					HOL = { has_completed_focus = HOL_oranje_boven }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				NOT = { has_government = neutrality }
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				has_government = neutrality
-				NOT = {
-					AND = {
-						GER = { has_government = fascism }
-						HOL = { is_in_faction_with = GER }
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = democratic
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				HOL = { has_completed_focus = HOL_the_netherlands_first }
-			}
-			modifier = {
-				factor = 0.1
-				has_opinion = { target = ENG value < -49 }
-			}
-			modifier = {
-				factor = 0
-				has_opinion = { target = ENG value < -99 }
-			}
-		}
-		FROM = { country_event = { id = mtg_netherlands.30 hours = 6 } }
-		set_country_flag = secret_staff_talks_infantry_equipment
-		effect_tooltip = {
-			send_equipment = {
-			    equipment = artillery_equipment
-			    amount = 2000
-			    target = FROM
-			}
-		}
-	}
-
-	# Ok - give them support equipment
-	option = {
-		name = mtg_netherlands.29.b
-		trigger = {
-			has_equipment = {
-				support_equipment > 250
-			}
-		}
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0
-				is_in_faction_with = SOV
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = fascism
-				OR = {
-					NOT = {
-						HOL = { has_completed_focus = HOL_cave_to_the_germans }
-					}
-					HOL = { has_completed_focus = HOL_the_netherlands_first }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = neutrality
-				NOT = {
-					HOL = { has_completed_focus = HOL_oranje_boven }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				NOT = { has_government = neutrality }
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				has_government = neutrality
-				NOT = {
-					AND = {
-						GER = { has_government = fascism }
-						HOL = { is_in_faction_with = GER }
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = democratic
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				HOL = { has_completed_focus = HOL_the_netherlands_first }
-			}
-			modifier = {
-				factor = 0.1
-				has_opinion = { target = ENG value < -49 }
-			}
-			modifier = {
-				factor = 0
-				has_opinion = { target = ENG value < -99 }
-			}
-		}
-		FROM = { country_event = { id = mtg_netherlands.30 hours = 6 } }
-		set_country_flag = secret_staff_talks_support_equipment
-		effect_tooltip = {
-			send_equipment = {
-			    equipment = support_equipment
-			    amount = 250
-			    target = FROM
-			}
-		}
-	}
-
-	# Ok - give them artillery equipment
-	option = {
-		name = mtg_netherlands.29.c
-		trigger = {
-			has_equipment = {
-				artillery_equipment > 200
-			}
-		}
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0
-				is_in_faction_with = SOV
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = fascism
-				OR = {
-					NOT = {
-						HOL = { has_completed_focus = HOL_cave_to_the_germans }
-					}
-					HOL = { has_completed_focus = HOL_the_netherlands_first }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = neutrality
-				NOT = {
-					HOL = { has_completed_focus = HOL_oranje_boven }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				NOT = { has_government = neutrality }
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				has_government = neutrality
-				NOT = {
-					AND = {
-						GER = { has_government = fascism }
-						HOL = { is_in_faction_with = GER }
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = democratic
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				HOL = { has_completed_focus = HOL_the_netherlands_first }
-			}
-			modifier = {
-				factor = 0.1
-				has_opinion = { target = ENG value < -49 }
-			}
-			modifier = {
-				factor = 0
-				has_opinion = { target = ENG value < -99 }
-			}
-		}
-		FROM = { country_event = { id = mtg_netherlands.30 hours = 6 } }
-		set_country_flag = secret_staff_talks_artillery_equipment
-		effect_tooltip = {
-			send_equipment = {
-			    equipment = artillery_equipment
-			    amount = 200
-			    target = FROM
-			}
-		}
-	}
-
-	# Nope
-	option = {
-		name = mtg_netherlands.29.e
-		ai_chance = {
-			base = 1
-			modifier = {
-				add = 9
-				NOT = {
-					has_equipment = {
-					    infantry_equipment > 2000
-					}
-				}
-				NOT = {
-					has_equipment = {
-						support_equipment > 250
-					}
-				}
-				NOT = {
-					has_equipment = {
-						artillery_equipment > 200
-					}
-				}
-			}
-		}
-		FROM = { country_event = { id = mtg_netherlands.31 hours = 6 } }
-	}
-}
-
 # Event for HOL saying FROM will deliver equipment
 country_event = {
 	id = mtg_netherlands.30
@@ -468,31 +153,6 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				original_tag = GER
-				has_government = fascism
-				OR = {
-					NOT = {
-						HOL = { has_completed_focus = HOL_cave_to_the_germans }
-					}
-					HOL = { has_completed_focus = HOL_the_netherlands_first }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = neutrality
-				NOT = {
-					HOL = { has_completed_focus = HOL_oranje_boven }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				NOT = { has_government = neutrality }
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
 				original_tag = ENG
 				has_government = neutrality
 				NOT = {
@@ -501,17 +161,6 @@ country_event = {
 						HOL = { is_in_faction_with = GER }
 					}
 				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = democratic
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				HOL = { has_completed_focus = HOL_the_netherlands_first }
 			}
 			modifier = {
 				factor = 0.1
@@ -551,37 +200,6 @@ country_event = {
 			modifier = {
 				factor = 0.1
 				has_opinion = { target = HOL value > 99 }
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-				ENG = {
-					focus_progress = {
-						focus = ENG_benelux_intervention
-						progress > 0
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = communism
-				HOL = { has_completed_focus = HOL_join_the_french }
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					original_tag = FRA
-					original_tag = ENG
-				}
-				GER = {
-					focus_progress = {
-						focus = GER_around_maginot
-						progress > 0
-					}
-				}
-				NOT = { HOL = { has_completed_focus = HOL_cave_to_the_germans } }
 			}
 			modifier = {
 				factor = 0
@@ -664,31 +282,6 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				original_tag = GER
-				has_government = fascism
-				OR = {
-					NOT = {
-						HOL = { has_completed_focus = HOL_cave_to_the_germans }
-					}
-					HOL = { has_completed_focus = HOL_the_netherlands_first }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = neutrality
-				NOT = {
-					HOL = { has_completed_focus = HOL_oranje_boven }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				NOT = { has_government = neutrality }
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
 				original_tag = ENG
 				has_government = neutrality
 				NOT = {
@@ -697,17 +290,6 @@ country_event = {
 						HOL = { is_in_faction_with = GER }
 					}
 				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = democratic
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				HOL = { has_completed_focus = HOL_the_netherlands_first }
 			}
 			modifier = {
 				factor = 0.1
@@ -774,37 +356,6 @@ country_event = {
 			modifier = {
 				factor = 0.1
 				has_opinion = { target = HOL value > 99 }
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-				ENG = {
-					focus_progress = {
-						focus = ENG_benelux_intervention
-						progress > 0
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = communism
-				HOL = { has_completed_focus = HOL_join_the_french }
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					original_tag = FRA
-					original_tag = ENG
-				}
-				GER = {
-					focus_progress = {
-						focus = GER_around_maginot
-						progress > 0
-					}
-				}
-				NOT = { HOL = { has_completed_focus = HOL_cave_to_the_germans } }
 			}
 			modifier = {
 				factor = 0
@@ -892,31 +443,6 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				original_tag = GER
-				has_government = fascism
-				OR = {
-					NOT = {
-						HOL = { has_completed_focus = HOL_cave_to_the_germans }
-					}
-					HOL = { has_completed_focus = HOL_the_netherlands_first }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				has_government = neutrality
-				NOT = {
-					HOL = { has_completed_focus = HOL_oranje_boven }
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = ENG
-				NOT = { has_government = neutrality }
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
 				original_tag = ENG
 				has_government = neutrality
 				NOT = {
@@ -925,17 +451,6 @@ country_event = {
 						HOL = { is_in_faction_with = GER }
 					}
 				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = democratic
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				HOL = { has_completed_focus = HOL_the_netherlands_first }
 			}
 			modifier = {
 				factor = 0.1
@@ -984,37 +499,6 @@ country_event = {
 			modifier = {
 				factor = 0.1
 				has_opinion = { target = HOL value > 99 }
-			}
-			modifier = {
-				factor = 0
-				original_tag = GER
-				HOL = { has_completed_focus = HOL_cave_to_the_germans }
-				ENG = {
-					focus_progress = {
-						focus = ENG_benelux_intervention
-						progress > 0
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				original_tag = FRA
-				has_government = communism
-				HOL = { has_completed_focus = HOL_join_the_french }
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					original_tag = FRA
-					original_tag = ENG
-				}
-				GER = {
-					focus_progress = {
-						focus = GER_around_maginot
-						progress > 0
-					}
-				}
-				NOT = { HOL = { has_completed_focus = HOL_cave_to_the_germans } }
 			}
 			modifier = {
 				factor = 0

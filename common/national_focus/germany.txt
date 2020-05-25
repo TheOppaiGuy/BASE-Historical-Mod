@@ -1806,8 +1806,8 @@ focus_tree = {
 		
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			event = wtt_germany.72
-			event = wtt_germany.73
+			country_event = wtt_germany.72
+			country_event = wtt_germany.73
 			if = {
 				limit = {
 					NOT = { is_in_faction_with = HUN }
@@ -2601,7 +2601,7 @@ focus_tree = {
 			}
 		}	
 		completion_reward = {
-			event = romania.1
+			country_event = romania.1
 			SOV = {
 				annex_country = {
 					target = LIT
@@ -2616,6 +2616,7 @@ focus_tree = {
 					type = puppet_wargoal_focus
 					target = FIN
 				}
+				transfer_state = 766
 				transfer_state = 78
 				transfer_state = 80
 			}
@@ -2625,7 +2626,7 @@ focus_tree = {
 	focus = {
 		id = GER_rhineland
 		icon = GFX_goal_generic_military_sphere
-		x = 24
+		x = 23
 		y = 0
 		cost = 10
 
@@ -2770,7 +2771,7 @@ focus_tree = {
 		prerequisite = { focus = GER_anti_comitern_pact }
 		will_lead_to_war_with = SOV
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = GER_anti_comitern_pact
 		cost = 10
 		historical_ai = {
@@ -2834,7 +2835,7 @@ focus_tree = {
 				date < 1938.1.1
 			}
 		}
-		availabe = {
+		available = {
 			date > 1937.01.01
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -2956,11 +2957,6 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 10
-		bypass = {
-			188 = { is_owned_by = GER }
-			85 = { is_owned_by = GER }
-			86 = { is_owned_by = GER }
-		}
 		ai_will_do = {
 			factor = 10	
 			modifier = {
@@ -2983,7 +2979,7 @@ focus_tree = {
 		prerequisite = { focus = GER_demand_memel }
 		will_lead_to_war_with = POL
 		available = {
-			date > 1939.06.06
+			date > 1939.05.01
 		}
 		cancel_if_invalid = no
 		x = 1
@@ -3013,7 +3009,6 @@ focus_tree = {
 					type = annex_everything
 					target = POL	
 			}
-			country_event = { id = germany.82 }
 		}
 	}
 	
@@ -3087,7 +3082,7 @@ focus_tree = {
 	focus = {
 		id = GER_around_maginot
 		icon = GFX_goal_generic_attack_allies
-		prerequisite = { focus = GER_danzig_or_war focus = GER_poland_friend}
+		prerequisite = { focus = GER_danzig_or_war }
 
 		historical_ai = {
 			date > 1939.1.1
@@ -3150,16 +3145,7 @@ focus_tree = {
 		prerequisite = { focus = GER_anschluss }
 		will_lead_to_war_with = CZE
 		will_lead_to_war_with = FRA
-		available = {
-			NOT = {
-				AND = {
-					CZE = { is_in_faction_with = GER }
-					has_war = yes
-				}
-			}
-		}
 
-		cancel_if_invalid = yes
 		x = -1
 		y = 1
 		relative_position_id = GER_anschluss
@@ -3169,7 +3155,7 @@ focus_tree = {
 		}	
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			add_core = 69
+			add_core_of = 69
 			transfer_state = 69
 		}
 	}
@@ -3209,18 +3195,6 @@ focus_tree = {
 		}
 
 		bypass = {
-			OR = {
-				CZE = { is_puppet_of = GER }
-				CZE = { is_in_faction_with = GER }
-				has_war_with = CZE
-				NOT = { country_exists = CZE }
-				any_other_country = {
-					is_in_faction_with = GER
-					CZE = {
-						is_puppet_of = PREV
-					}
-				}
-			}
 		}
 
 		x = 0
@@ -3242,9 +3216,10 @@ focus_tree = {
 						}
 					}
 				}
-				set_global_flag = end_of_czechoslovakia
+				
 				CZE = { country_event = germany.55 }
 			}
+			set_global_flag = end_of_czechoslovakia
 			if = {
 				limit = { 
 					OR = {
@@ -3263,6 +3238,9 @@ focus_tree = {
 				limit = { NOT = { country_exists = CZE } }
 				country_event = { id = germany.55 hours = 6 }
 			}
+			annex_country = {
+				target = CZE
+			}
 			add_named_threat = { threat = 5 name = GER_end_of_czechoslovakia }
 			custom_effect_tooltip = end_of_czechoslovakia_mefo_bills_tt
 		}
@@ -3271,7 +3249,7 @@ focus_tree = {
 	focus = {
 		id = GER_second_vienna_award
 		icon = GFX_goal_generic_cavalry
-		prerequisite = { focus = GER_czech_friend focus = GER_end_of_czechoslovakia }
+		prerequisite = { focus = GER_end_of_czechoslovakia }
 		x = 0
 		y = 2
 		relative_position_id = GER_end_of_czechoslovakia
@@ -3623,7 +3601,7 @@ focus_tree = {
 	focus = {
 		id = GER_naval_rearmament
 		icon = GFX_goal_generic_build_navy
-		x = 32
+		x = 31
 		y = 1
 		cost = 5
 		ai_will_do = {
@@ -3712,7 +3690,7 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { focus = GER_naval_rearmament }
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = GER_naval_rearmament
 		cost = 5
 		ai_will_do = {

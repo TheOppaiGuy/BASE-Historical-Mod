@@ -1,0 +1,14 @@
+ideas = {
+
+	hidden_ideas = {
+		ai_useless = {
+			modifier = {
+				production_factory_max_efficiency_factor = -10.0
+				production_speed_buildings_factor = -10.0
+				research_speed_factor = -10.0
+				max_fuel_factor = -10.0
+				training_time_factor = -10.0
+			}
+		}
+	}
+}
